@@ -1,1 +1,1 @@
-This is some text I'm adding to the file. I'm adding more stuff to the file after adding it to github
+This is some text I'm adding to the file. I'm adding more stuff to the file after adding it to github. This is after pulling the first two sentences on VS
