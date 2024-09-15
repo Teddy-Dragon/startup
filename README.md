@@ -5,9 +5,9 @@
 
 ## Design:
 
-![Display of the "Your Maps" Page](https://ibb.co/N2DxKSD)
+![Display of the "Your Maps" Page](https://github.com/Teddy-Dragon/startup/blob/main/Screenshot%202024-09-13%20221131.png?raw=true)
 
-![A demonstration of a session](https://ibb.co/RNNjKmL)
+![A demonstration of a session](https://github.com/Teddy-Dragon/startup/blob/main/Screenshot%202024-09-13%20221207.png?raw=true)
 
 ## Key Features
 - Secure login
