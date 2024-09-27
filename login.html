@@ -5,8 +5,10 @@
     <title>Login</title>
 </head>
 <header>
+    <nav>
     <a href="index.html"> Home page <br></a>
-    <a href= > Join a game with a code </a>
+    <a href="game.html" > Join a game </a>
+    </nav>
 </header>
 <body>
     <div class = "returning">
@@ -14,25 +16,35 @@
         <li>
         <label for="username"> Username: </label>
         <input type="text" id="username" name="username" required pattern="[A-z]{5,24}"/>
+            <input type="submit">
         </li>
         <li>
             <label for="password"> Password: </label>
             <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}">
+            <input type="submit">
         </li>
     </div>
 <div class = "new player">
     <h3> New player? </h3>
     <li>
-        <label for="newusername"> Enter New Username: </label>
+        <label for="newusername"> New Username: </label>
         <input type="text" id="newusername" name="newusername" required pattern="[A-z]{5,24}">
+        <input type="submit">
     </li>
     <li>
-        <label for="newpassword"> Enter New Password:</label>
+        <label for="newpassword"> New Password:</label>
         <input type="password" id="newpassword" name="newpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}">
+        <input type="submit">
+    </li>
+    <li>
+        <label> Confirm Password:</label>
+        <input type="password" id="confirmpassword" required>
+        <input type="submit">
     </li>
     <li>
         <label for="useremail"> Enter Email:</label>
         <input type="email" id="useremail" name="useremail" required pattern="[A-z0-9]{1,}@[A-z0-9]{1,}[.][A-z]{3}">
+        <input type="submit">
     </li>
 
 </div>
