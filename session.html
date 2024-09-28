@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Session</title>
+</head>
+<header>
+  <nav>
+    <a href="index.html">Home<br></a>
+    Welcome Player123! Not you? <button type="button"> Sign out </button> <br>
+    <a href="maps.html">Your Maps<br></a>
+  </nav>
+</header>
+<body>
+<p></p>
+<label for="sessionname"> Session name</label>
+<input type="text" id="sessionname" name="sessionname"><input type="submit"> <!-- Once name is inputted, cannot be changed -->
+<p></p>
+<div class="host">
+  Host name: Student123
+</div>
+<div class = "map">
+  Map name: Map 1
+  <img src="simpleAfrica.jpg" width="400px">
+</div>
+<div class="players">
+  <br>
+  <!--verify session codes to running sessions. If someone inputs the correct session code, they will join the game and will be displayed here. -->
+  <h3>Current Players</h3>
+  <li> Player 1</li>
+  <li> Player 2</li>
+</div>
+
+</body>
+<footer>
+  <h4> Session Code</h4>
+  <p> 123456 </p> <!-- Randomly generated 6 digit code unique to one instance of a session until it ends. New one generated upon creation of a new session -->
+</footer>
+</html>

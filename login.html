@@ -17,11 +17,13 @@
         <label for="username"> Username: </label>
         <input type="text" id="username" name="username" required pattern="[A-z]{5,24}"/>
             <input type="submit">
+            <!--Verify username presence in database. If present, verify against password. If not, wrong username or password error-->
         </li>
         <li>
             <label for="password"> Password: </label>
             <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}">
             <input type="submit">
+            <!--verify password against username. If mismatched, display wrong username or password error -->
         </li>
     </div>
 <div class = "new player">
@@ -30,6 +32,7 @@
         <label for="newusername"> New Username: </label>
         <input type="text" id="newusername" name="newusername" required pattern="[A-z]{5,24}">
         <input type="submit">
+        <!-- Save Username in Database-->
     </li>
     <li>
         <label for="newpassword"> New Password:</label>
@@ -37,7 +40,7 @@
         <input type="submit">
     </li>
     <li>
-        <!-- Make sure passwords match before making it User Password-->
+        <!-- Make sure passwords match before making it User Password and saving to database-->
         <label> Confirm Password:</label>
         <input type="password" id="confirmpassword" required>
         <input type="submit">
@@ -46,6 +49,7 @@
         <label for="useremail"> Enter Email:</label>
         <input type="email" id="useremail" name="useremail" required pattern="[A-z0-9]{1,}@[A-z0-9]{1,}[.][A-z]{3}">
         <input type="submit">
+        <!-- save user email in database. Used for account recovery and information -->
     </li>
 
 </div>

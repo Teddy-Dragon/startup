@@ -10,7 +10,7 @@
     <a href="game.html"> Join a Game <br><br> </a>
     Welcome Player123! Not you? <button type="button"> Sign out </button> <br>
     <!-- Sign out redirects to the home page-->
-    <!-- Cannot access this page without being signed in, so no need to acesss login page-->
+    <!-- Cannot access this page without being signed in-->
     <a href=""> Host a game </a>
   </nav>
 </header>
@@ -22,25 +22,31 @@
       <th>Map name</th>
       <th>Map Information</th>
       <th>Map Image</th>
+        <th> Host Game</th>
       </tr>
       <tr>
         <td>Map1</td>
         <td> This is the first map and here is some information about it </td>
         <td> <img src="https://github.com/Teddy-Dragon/startup/blob/main/simpleAfrica.jpg?raw=true" width="400px"> </td>
+        <td> <a href="session.html"> Use map </a></td> <!--Sends map information over to session.html-->
       </tr>
   <tr>
     <td> Map 2 </td>
     <td> This is the second map and here is some information on it </td>
     <td> <img src="https://github.com/Teddy-Dragon/startup/blob/main/simpleAsia.jpg?raw=true" width = "400px"></td>
+  <td><a href="session.html"> Use map</a></td> <!--Sends map information over to session.html-->
   </tr>
   <tr>
     <td> Map 3</td>
     <td> This is the third map and here is some information. This is going to be longer than the usual amount of information to see how it deals with formating</td>
     <td> <img src="https://github.com/Teddy-Dragon/startup/blob/main/simpleNorthAmerica.png?raw=true" width = "400px"></td>
+    <td><a href="session.html">Use map</a></td> <!--Sends map information over to session.html-->
   </tr>
   <td> <label for="newmap"> Map name: </label> <input type="text" id="newmap" name="newmap"> <input type="submit"> </td>
   <td> <label for="newmapinfo">Map Information: </label><input type="text" id="newmapinfo" name="newmapinfo"><input type="submit"></td>
   <td> <label for="newmapimage"> Map image: </label> <input type="file" id="newmapimage" name="newmapimage" accept=".jpg, .jpeg, .png"><input type="submit"></td>
+  <td> Save to host </td>
+  <!-- Save new maps to database under username. -->
     </table></p>
 </div>
 
