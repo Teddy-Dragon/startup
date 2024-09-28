@@ -30,11 +30,11 @@
 ## HTML Deliverable
 For this deliverable, I built the HTML stucture of my website. More HTML pages were needed than the three originally expected.
 
--[x] 5 HTML Pages that represent a users pathway through the site. Example 'user' is available temporarily from the home page.
--[x] Each page links to the other, future methods will be implemented in order to put restrictions on pages depending on user sign-in.
--[x] Each page and its interactive elements has text explaining their purpose.
--[x] Example images were used in order to display placeholder maps in both maps.html and session.html
--[x] Input boxes for both login and sign up are displayed on login.html. This will refer back to the website's database to verify existing users and add new ones.
--[]  The websocket functionality cannot be represented in pure HTML, as it requires live updated icons over the shared page's picture.
+- [x] 5 HTML Pages that represent a users pathway through the site. Example 'user' is available temporarily from the home page.
+- [x] Each page links to the other, future methods will be implemented in order to put restrictions on pages depending on user sign-in.
+- [x] Each page and its interactive elements has text explaining their purpose.
+- [x] Example images were used in order to display placeholder maps in both maps.html and session.html
+- [x] Input boxes for both login and sign up are displayed on login.html. This will refer back to the website's database to verify existing users and add new ones.
+- [ ]  The websocket functionality cannot be represented in pure HTML, as it requires live updated icons over the shared page's picture.
 
   
