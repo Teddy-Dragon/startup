@@ -1,7 +1,37 @@
+*{
+    box-sizing: border-box;
+}
 nav{
     background-color:#d3d3d3;
 
 }
-.infomation{
-    box-sizing: content-box;
+.login_background{
+    background-image: url("oldmap1.jpg");
+    filter: grayscale(100%);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.information{
+    padding-top: 30px;
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+.infotitle{
+
+}
+.information .returning .submit {
+    width: 50%;
+}
+.information .returning .return_info{
+    width: 100%;
+}
+.information .newplayer .new_info{
+    width: 100%;
+}
+.information .newplayer .submit{
+    width: 50%
 }

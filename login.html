@@ -17,51 +17,53 @@
 <div class = "user">
 
 </div>
-    <div style = "float:right" class = "information">
-        <h3> Returning Player?</h3>
+<div class = "information">
+<div class = "login_background"></div>
+
+    <div class = "returning">
+        <h3 class = "infotitle"> Returning Player?</h3>
         <li>
         <label for="username"> Username: </label>
-        <input type="text" id="username" name="username" required pattern="[A-z]{5,24}"/>
-            <input type="submit">
+        <input class = "return_info" type="text" id="username" name="username" required pattern="[A-z]{5,24}"/>
             <!--Verify username presence in database. If present, verify against password. If not, wrong username or password error-->
         </li>
         <li>
             <label for="password"> Password: </label>
-            <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}">
-            <input type="submit">
+            <input class = "return_info" type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}">
             <!--verify password against username. If mismatched, display wrong username or password error -->
         </li>
+<br>
+        <input class = "submit" type="submit"/>
+
     </div>
-<div style="float:left" class = "infomation">
-    <h3> New player? </h3>
+<div class = "newplayer">
+    <h3 class = "infotitle"> New player? </h3>
     <li>
         <label for="newusername"> New Username: </label>
-        <input type="text" id="newusername" name="newusername" required pattern="[A-z]{5,24}">
-        <input type="submit">
+        <input class = "new_info" type="text" id="newusername" name="newusername" required pattern="[A-z]{5,24}">
         <!-- Save Username in Database-->
     </li>
     <li>
         <label for="newpassword"> New Password:</label>
-        <input type="password" id="newpassword" name="newpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}">
-        <input type="submit">
+        <input class = "new_info" type="password" id="newpassword" name="newpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}">
     </li>
     <li>
         <!-- Make sure passwords match before making it User Password and saving to database-->
         <label> Confirm Password:</label>
-        <input type="password" id="confirmpassword" required>
-        <input type="submit">
+        <input class = "new_info" type="password" id="confirmpassword" required>
     </li>
     <li>
         <label for="useremail"> Enter Email:</label>
-        <input type="email" id="useremail" name="useremail" required pattern="[A-z0-9]{1,}@[A-z0-9]{1,}[.][A-z]{3}">
-        <input type="submit">
+        <input class = "new_info" type="email" id="useremail" name="useremail" required pattern="[A-z0-9]{1,}@[A-z0-9]{1,}[.][A-z]{3}">
         <!-- save user email in database. Used for account recovery and information -->
     </li>
-
+    <input class = "submit" type="submit">
 </div>
+</div>
+
 
 </body>
 <footer>
     <a href="https://github.com/Teddy-Dragon/startup"> Kaylee's Github </a>
 </footer>
-</html>
+</html>0
