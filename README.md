@@ -44,5 +44,5 @@ For this deliverable I styled my website to match as closely as possible the fin
 - [x] Each page contains a consistent background
 - [x] Each page has flex components to help appearance adjust with resizing
 - [x] Consistent fonts and design throughout the 5 HTML pages
-- [ ] maps.html is not in its final design stage but a rough guess, that will be modified once other elements are added
+- [ ] maps.html is not in its final design stage but a rough idea that will be modified once other elements are added
   
