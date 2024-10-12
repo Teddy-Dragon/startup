@@ -37,4 +37,12 @@ For this deliverable, I built the HTML stucture of my website. More HTML pages w
 - [x] Input boxes for both login and sign up are displayed on login.html. This will refer back to the website's database to verify existing users and add new ones.
 - [ ]  The websocket functionality cannot be represented in pure HTML, as it requires live updated icons over the shared page's picture.
 
+## CSS Deliverable
+For this deliverable I styled my website to match as closely as possible the final appearance
+
+- [x] Navigation bar styled with a drop down menu
+- [x] Each page contains a consistent background
+- [x] Each page has flex components to help appearance adjust with resizing
+- [x] Consistent fonts and design throughout the 5 HTML pages
+- [ ] maps.html is not in its final design stage but a rough guess, that will be modified once other elements are added
   
