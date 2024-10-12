@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+    list-style: none;
+}
+nav{
+    display: flex;
+    padding-bottom: 50px;
+
+}
+footer{
+    padding-top: 1000px;
+}
+.image{
+    background-image: url("editedoldmap2.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.gap{
+    padding-top: 50px;
+}
+.container1{
+    padding-top: 50px;
+    border-radius: 25px;
+    background: white;
+    padding: 20px;
+
+
+}
