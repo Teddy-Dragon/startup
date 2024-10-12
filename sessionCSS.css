@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+    list-style: none;
+}
+nav{
+    display: flex;
+
+}
+
+footer{
+    padding-top: 1000px;
+}
+.image{
+    background-image: url("editedoldmap2.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.body2{
+    flex-direction: row;
+    display: flex;
+}
+
+.gap{
+    padding-top: 50px;
+}
+.container2{
+    display: flex;
+
+}
+.everything{
+    display: flex;
+    flex-direction: column;
+}
+.sessionname1{
+    background: rgba(255, 255, 255, 0.7);
+    display: inline-flex;
+}
+.sessioninfo{
+    display: inline-flex;
+}
+.sessioninfo1{
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    display: inline-flex;
+
+}
+.sessioninfo th{
+    padding: 10px;
+}
+.mapinterface{
+    padding-left: 100px;
+    padding-right: 10px;
+    display: flex;
+    flex: 1;
+}
+.picture{
+    border-style: solid;
+    border-radius: 25px;
+    border-color: dimgray;
+    display: flex;
+    width: 100%;
+}
+.anotherone{
+    flex-direction: row;
+    display: flex;
+    padding-right: 100px;
+}
+
+.players_andcode{
+    border-style: solid;
+    border-color: dimgray;
+    border-radius: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    background: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+}
