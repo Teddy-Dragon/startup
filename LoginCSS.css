@@ -2,7 +2,8 @@
     box-sizing: border-box;
 }
 nav{
-    background-color:#d3d3d3;
+    background-color:#999999;
+    padding: 10px;
 
 }
 footer{
@@ -13,7 +14,6 @@ footer{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    filter: grayscale(100%);
     background-attachment: fixed;
 }
 .information{
@@ -37,14 +37,14 @@ footer{
     padding: 20px;
 }
 .information .returning .submit {
-    width: 50%;
+    width: 100%;
 }
 .information .returning .return_info{
     width: 100%;
 }
-.information .newplayer .new_info{
-    width: 100%;
+.infotitle{
+    padding-top: 30px;
 }
-.information .newplayer .submit{
-    width: 50%
+.information .returning .new_info{
+    width: 100%;
 }
