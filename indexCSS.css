@@ -25,6 +25,8 @@ footer{
     border-radius: 25px;
     background: white;
     padding: 20px;
+    display: inline-block;
+    width: 75%;
 
 
 }
