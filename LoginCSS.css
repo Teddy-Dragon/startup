@@ -5,12 +5,16 @@ nav{
     background-color:#d3d3d3;
 
 }
-.login_background{
-    background-image: url("oldmap1.jpg");
-    filter: grayscale(100%);
+footer{
+    padding-top: 1000px;
+}
+.image{
+    background-image: url("editedoldmap2.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    filter: grayscale(100%);
+    background-attachment: fixed;
 }
 .information{
     padding-top: 30px;
@@ -20,8 +24,17 @@ nav{
     align-items: center;
     list-style: none;
 }
-.infotitle{
 
+.returning{
+    border-radius: 25px;
+    background: white;
+    padding: 20px;
+
+}
+.newplayer{
+    border-radius: 25px;
+    background: white;
+    padding: 20px;
 }
 .information .returning .submit {
     width: 50%;
