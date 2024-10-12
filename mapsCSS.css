@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+    list-style: none;
+}
+nav{
+    display: flex;
+
+}
+footer{
+    padding-top: 1000px;
+}
+.image{
+    background-image: url("editedoldmap2.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.gap{
+    padding-top: 50px;
+}
+.everything{
+    padding-right: 50px;
+    padding-left: 50px;
+}
+.heading{
+    background-color: white;
+    border-radius: 25px;
+    border-color: dimgray;
+    border-style: solid;
+
+}
+.map{
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 25px;
+    border-style: solid;
+    border-color: dimgray;
+    padding: 10px;
+}
+.map2{
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 25px;
+    border-style: solid;
+    border-color: dimgray;
+    padding: 10px;
+
+}
+.map3{
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: dimgray;
+
+}
