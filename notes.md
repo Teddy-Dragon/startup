@@ -318,6 +318,7 @@ footer{
 ## Javascript
 
 You can convert JSON to, and from, JavaScript using the JSON.parse and JSON.stringify functions.
+Which of the following correctly describes JSON?: "JSON provides a simple, and yet effective way, to share and store data. By design JSON is easily convertible to, and from, JavaScript objects. This makes it a very convenient data format when working with web technologies. Because of its simplicity, standardization, and compatibility with JavaScript, JSON has become one of the world's most popular data formats."
 
 To see how many times a block of code is called you can use the count function.
   console.count('a');
@@ -359,16 +360,16 @@ You can also use the ternary operator. This provides a compact if else represent
 
 a === 1 ? console.log(1) : console.log('not 1');
 
-
+What will the following code output when executed using a for loop and console.log? 
 Looping Constructs: 
-# for
+### for
 
 for (let i = 0; i < 2; i++) {
   console.log(i);
 }
 // OUTPUT: 0 1
 
-# do while
+### do while
 let i = 0;
 do {
   console.log(i);
@@ -376,14 +377,14 @@ do {
 } while (i < 2);
 // OUTPUT: 0 1
 
-# while
+### while
 let i = 0;
 while (i < 2) {
   console.log(i);
   i++;
 }
 // OUTPUT: 0 1
-# for in
+### for in
 The for in statement iterates over an object's property names.
 
 const obj = { a: 1, b: 'fish' };
@@ -393,16 +394,17 @@ for (const name in obj) {
 // OUTPUT: a
 // OUTPUT: b
 
-# For arrays the object's name is the array index.
+### For arrays the object's name is the array index.
 
 const arr = ['a', 'b'];
+
 for (const name in arr) {
   console.log(name);
 }
 // OUTPUT: 0
 // OUTPUT: 1
 
-# for of
+### for of
 The for of statement iterates over an iterable's (Array, Map, Set, ...) property values.
 
 const arr = ['a', 'b'];
@@ -412,18 +414,53 @@ for (const val of arr) {
 // OUTPUT: 'a'
 // OUTPUT: 'b'
 
+String Functions:
+length:	The number of characters in the string
+indexOf():	The starting index of a given substring
+split():	Split the string into an array on the given delimiter string
+startsWith():	True if the string has a given prefix
+endsWith():	True if the string has a given suffix
+toLowerCase():	Converts all characters to lowercase
+
+## Arrows
+### What does the following code using arrow syntax function declaration do?
+
+These return the same thing :
+
+const a = [1, 2, 3, 4];
+
+// standard function syntax
+a.sort(function (v1, v2) {
+  return v1 - v2;
+});
+
+// arrow function syntax
+a.sort((v1, v2) => v1 - v2)
+
+## Return values
+
+() => 3;
+// RETURNS: 3
+
+() => {
+  3;
+};
+// RETURNS: undefined
+
+() => {
+  return 3;
+};
+// RETURNS: 3
+
 How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
-What does the following code using arrow syntax function declaration do?
 What does the following code using map with an array output?
 What does the following code output using getElementByID and addEventListener?
 What does the following line of Javascript do using a # selector?
 Which of the following are true? (mark all that are true about the DOM)
-What will the following code output when executed using a for loop and console.log?
 What is valid javascript syntax for if, else, for, while, switch statements?
 What is the correct syntax for creating a javascript object?
 Is it possible to add new properties to javascript objects?
 Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
-Which of the following correctly describes JSON?
 Which of the following is true when the -la parameter is specified for the ls console command?
 Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
 Is a web certificate is necessary to use HTTPS.
