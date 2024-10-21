@@ -300,7 +300,19 @@ footer{
 - ssh
 
 - What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo  do?
-- 
+- chmod:  changes file permissions for you, groups, and global
+- pwd: lists current location in files
+- cd: lets you navigate through files and directories
+- ls: lists all items in a directory
+- vim: console editor- has syntax highlighting
+- nano: consolde editor- basic editor
+- mkdir: make directory
+- rm: remove
+- man: Gives documentation for commands
+- ssh: Secure shell session
+- ps: Looks at running processes
+- wget: a way to download things from the internet in the console
+- sudo: Super user do, get admin privs. 
 
 - By default, the HTML span element has a default CSS display property value of:
 - inline
@@ -452,18 +464,42 @@ a.sort((v1, v2) => v1 - v2)
 };
 // RETURNS: 3
 
+
+- Is it possible to add new properties to javascript objects?
+-   Yes, with object.property(Define property here)
+
+-   What is the correct syntax for creating a javascript object?
+-   const object = New Object(stuff) or const obj = {stuff}
+
+
 How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
 What does the following code using map with an array output?
-What does the following code output using getElementByID and addEventListener?
 What does the following line of Javascript do using a # selector?
 Which of the following are true? (mark all that are true about the DOM)
 What is valid javascript syntax for if, else, for, while, switch statements?
-What is the correct syntax for creating a javascript object?
-Is it possible to add new properties to javascript objects?
-Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
-Which of the following is true when the -la parameter is specified for the ls console command?
-Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
-Is a web certificate is necessary to use HTTPS.
-Can a DNS A record can point to an IP address or another A record.
-Port 443, 80, 22 is reserved for which protocol?
 What will the following code using Promises output when executed?
+Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
+
+
+
+
+- Which of the following is true when the -la parameter is specified for the ls console command?
+-   la lists all attributes of items in a directory
+
+  -  Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
+  -  Top = click Root = Bozo Subdomains: 2nd banana, 1st fruit
+
+
+- Is a web certificate is necessary to use HTTPS.
+- Yes? duh?
+
+- Can a DNS A record can point to an IP address or another A record.
+  - A record points to an ip address a cname can point to an A record
+    
+- Port 443, 80, 22 is reserved for which protocol?
+  - Port 443: Https 80: HTTP 22: ssh 21: ftp
+
+
+
+MISC 
+What does the following code output using getElementByID and addEventListener?
