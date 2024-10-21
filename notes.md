@@ -45,7 +45,7 @@ Example of HTML with my start up:
     <link href="LoginCSS.css" rel="stylesheet"> All of these links link to style sheets, both my personal CSS and Bootstrap
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> Boot strap script for navigation bar functionality
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> Boot strap javascript for navigation bar functionality
 </head>
 
 
@@ -275,7 +275,7 @@ footer{
 - In the following code, what is the difference between the #title and .grid selector? 
   - One is referencing an ID and the other is referencing a class
     
--In the following code, what is the difference between padding and margin? 
+-In the following code, what is the difference between padding and margin? What does the following padding CSS do?
   - padding is the distance between the item and its border and margin is the distance between other elements
   - ![image of padding](https://static-kb.siteground.com/wp-content/uploads/sites/2/2023/10/what-is-padding.jpg)
   - ![image of margin](https://static-kb.siteground.com/wp-content/uploads/sites/2/2023/10/what-is-margin.jpg)
@@ -296,29 +296,134 @@ footer{
 - How do you declare the document type to be html?
 - [<!DOCTYPE HTML>]
 
+- Which of the following console command creates a remote shell session?
+- ssh
 
-What does the following padding CSS do?
+- What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo  do?
+- 
+
+- By default, the HTML span element has a default CSS display property value of:
+- inline
+
+- Given the following HTML, what CSS would you use to set the text "trouble" to green and leave the "double" text unaffected?
+- text-color: green
+
+- How would you use CSS to change all the div elements to have a background color of red?
+- div{background-color: red}
+
+- If you want to include JavaScript on an HTML page, which tag do you use?
+- <script> </script>
+
+
+## Javascript
+
+You can convert JSON to, and from, JavaScript using the JSON.parse and JSON.stringify functions.
+
+To see how many times a block of code is called you can use the count function.
+  console.count('a');
+  // OUTPUT: a: 1
+  console.count('a');
+  // OUTPUT: a: 2
+  console.count('b');
+  // OUTPUT: b: 1
+If you are trying to see how long a piece of code is running you can wrap it with time and timeEnd calls and it will output the duration between the time and timeEndcalls.
+
+console.time('demo time');
+// ... some code that takes a long time.
+console.timeEnd('demo time');
+// OUTPUT: demo time: 9762.74 ms
+
+You can even specify CSS declarations in order to style the log output.
+  console.log('%c JavaScript Demo', 'font-size:1.5em; color:green;');
+  // OUTPUT: JavaScript Demo //in large green text
+
+Variables are declared using either the let or const keyword. let allows you to change the value of the variable while const will cause an error if you attempt to change it.
+Types: 
+Boolean	true or false.
+Number	A 64-bit signed number.
+BigInt	A number of arbitrary magnitude.
+String	A textual sequence of characters.
+Symbol	A unique value.
+
+Object types: 
+Object	A collection of properties represented by name-value pairs. Values can be of any type.	{a:3, b:'fish'}
+Function	An object that has the ability to be called.	function a() {}
+Date	Calendar dates and times.	new Date('1995-12-17')
+Array	An ordered sequence of any type.	[3, 'fish']
+Map	A collection of key-value pairs that support efficient lookups.	new Map()
+JSON	A lightweight data-interchange format used to share information across programs.	{"a":3, "b":"fish"}
+
+JavaScript introduced the strict equality (===) and inequality (!==) operators. The strict operators skip the type conversion when computing equality
+
+You can also use the ternary operator. This provides a compact if else representation.
+
+a === 1 ? console.log(1) : console.log('not 1');
+
+
+Looping Constructs: 
+# for
+
+for (let i = 0; i < 2; i++) {
+  console.log(i);
+}
+// OUTPUT: 0 1
+
+# do while
+let i = 0;
+do {
+  console.log(i);
+  i++;
+} while (i < 2);
+// OUTPUT: 0 1
+
+# while
+let i = 0;
+while (i < 2) {
+  console.log(i);
+  i++;
+}
+// OUTPUT: 0 1
+# for in
+The for in statement iterates over an object's property names.
+
+const obj = { a: 1, b: 'fish' };
+for (const name in obj) {
+  console.log(name);
+}
+// OUTPUT: a
+// OUTPUT: b
+
+# For arrays the object's name is the array index.
+
+const arr = ['a', 'b'];
+for (const name in arr) {
+  console.log(name);
+}
+// OUTPUT: 0
+// OUTPUT: 1
+
+# for of
+The for of statement iterates over an iterable's (Array, Map, Set, ...) property values.
+
+const arr = ['a', 'b'];
+for (const val of arr) {
+  console.log(val);
+}
+// OUTPUT: 'a'
+// OUTPUT: 'b'
+
+How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
 What does the following code using arrow syntax function declaration do?
 What does the following code using map with an array output?
 What does the following code output using getElementByID and addEventListener?
 What does the following line of Javascript do using a # selector?
 Which of the following are true? (mark all that are true about the DOM)
-By default, the HTML span element has a default CSS display property value of: 
-How would you use CSS to change all the div elements to have a background color of red?
-
-Given the following HTML, what CSS would you use to set the text "trouble" to green and leave the "double" text unaffected?
 What will the following code output when executed using a for loop and console.log?
-How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
-
-
 What is valid javascript syntax for if, else, for, while, switch statements?
 What is the correct syntax for creating a javascript object?
 Is it possible to add new properties to javascript objects?
-If you want to include JavaScript on an HTML page, which tag do you use?
 Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
 Which of the following correctly describes JSON?
-What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo  do?
-Which of the following console command creates a remote shell session?
 Which of the following is true when the -la parameter is specified for the ls console command?
 Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
 Is a web certificate is necessary to use HTTPS.
