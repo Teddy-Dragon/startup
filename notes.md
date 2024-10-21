@@ -158,9 +158,62 @@ All the different input types for HTML:
 <input type="week">
 
 
+## CSS
 
+Example of CSS from my startup:
+[ This is here for me to know where it starts and ends, this is not in CSS
+*{
+    box-sizing: border-box;
+    list-style: none;
+}
+nav{
+    display: flex;
 
+}
+footer{
+    padding-top: 1000px;
+}
+.image{
+    background-image: url("editedoldmap2.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.information{
+    padding-top: 30px;
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
 
+.returning{
+    border-radius: 25px;
+    background: white;
+    padding: 20px;
+
+}
+.newplayer{
+    border-radius: 25px;
+    background: white;
+    padding: 20px;
+}
+.information .returning .submit {
+    width: 100%;
+}
+.information .returning .return_info{
+    width: 100%;
+}
+.infotitle{
+    padding-top: 30px;
+}
+.information .returning .new_info{
+    width: 100%;
+}
+
+]
 
 
 
@@ -168,7 +221,9 @@ All the different input types for HTML:
 In the following code, what does the link element do? # links an external source to the current html file
 In the following code,  what does a div tag do? # It wraps other content up, think of it like fancy pareenthesises
 In the following code, what is the difference between the #title and .grid selector? # One is referencing an ID and the other is referencing a class
-In the following code, what is the difference between padding and margin? # padding is the distance between the item and its border and margin is the distance between other elements [!image](https://static-kb.siteground.com/wp-content/uploads/sites/2/2023/10/what-is-padding.jpg)
+In the following code, what is the difference between padding and margin? # padding is the distance between the item and its border and margin is the distance between other elements ![image of padding](https://static-kb.siteground.com/wp-content/uploads/sites/2/2023/10/what-is-padding.jpg)
+![image of margin](https://static-kb.siteground.com/wp-content/uploads/sites/2/2023/10/what-is-margin.jpg)
+
 Given this HTML and this CSS how will the images be displayed using flex?
 What does the following padding CSS do?
 What does the following code using arrow syntax function declaration do?
