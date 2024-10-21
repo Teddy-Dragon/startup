@@ -215,7 +215,55 @@ footer{
 
 ]
 
+[Here is another example that uses flex more often
+nav{
+    background-color: #dc8676;
+}
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+h2 {
+    font-family: sans-serif;
+}
+.Title{
+    text-alignment: center;
+    flex:1;
+    display: flex;
+    background-color: #f9b5a8;
+    justify-content: center;
+}
+.Examples{
+    text-alignment: center;
+    flex: 1;
+    display: flex;
+    background-color: #ffe5e5;
+    justify-content: center;
+}
+]
 
+[example of animation
+.fly-in {
+  animation;
+}
+footer{
+  background-color:black;
+  font-family:sans-serif;
+  font-style:italic;
+  font-size: 25px;
+  color:white;
+  text-align: right;
+}
+@keyframes flying {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translatex(0%);
+  }
+}
+]
 
 
 - In the following code, what does the link element do?
@@ -234,6 +282,19 @@ footer{
     
 
 - Given this HTML and this CSS how will the images be displayed using flex?
+- Flex can change direction depending on if its flex-direction: row or column
+
+- How would you display an image with a hyperlink in HTML?
+-  <a href="link"> <img src="image"> </a>
+
+- In the CSS box model, what is the ordering of the box layers starting at the inside and working out?
+- ![image](https://imgs.search.brave.com/0hZYiscNRonmZhrRuw2mf6hAHZrRsyYM6ns7MZp7EHw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbnRl/cm5ldGluZ2lzaGFy/ZC5uZXRsaWZ5LmFw/cC9jc3MtYm94LW1v/ZGVsLTczYTUyNS4y/M2IyZDY0Yi5wbmc)
+
+- What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
+- [<p>, <ol>, <ul>, <h2> <h1>, <h3>]
+
+- How do you declare the document type to be html?
+- [<!DOCTYPE HTML>]
 
 
 What does the following padding CSS do?
@@ -244,13 +305,12 @@ What does the following line of Javascript do using a # selector?
 Which of the following are true? (mark all that are true about the DOM)
 By default, the HTML span element has a default CSS display property value of: 
 How would you use CSS to change all the div elements to have a background color of red?
-How would you display an image with a hyperlink in HTML?
-In the CSS box model, what is the ordering of the box layers starting at the inside and working out?
+
 Given the following HTML, what CSS would you use to set the text "trouble" to green and leave the "double" text unaffected?
 What will the following code output when executed using a for loop and console.log?
 How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
-What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
-How do you declare the document type to be html?
+
+
 What is valid javascript syntax for if, else, for, while, switch statements?
 What is the correct syntax for creating a javascript object?
 Is it possible to add new properties to javascript objects?
