@@ -218,8 +218,10 @@ footer{
 
 
 
-In the following code, what does the link element do? # links an external source to the current html file
-In the following code,  what does a div tag do? # It wraps other content up, think of it like fancy pareenthesises
+- In the following code, what does the link element do?
+  - links an external source to the current html file
+-In the following code,  what does a div tag do?
+  - It wraps other content up, think of it like fancy pareenthesises
 In the following code, what is the difference between the #title and .grid selector? # One is referencing an ID and the other is referencing a class
 In the following code, what is the difference between padding and margin? # padding is the distance between the item and its border and margin is the distance between other elements ![image of padding](https://static-kb.siteground.com/wp-content/uploads/sites/2/2023/10/what-is-padding.jpg)
 ![image of margin](https://static-kb.siteground.com/wp-content/uploads/sites/2/2023/10/what-is-margin.jpg)
