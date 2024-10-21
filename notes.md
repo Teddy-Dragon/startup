@@ -282,49 +282,49 @@ footer{
     
 
 - Given this HTML and this CSS how will the images be displayed using flex?
-- Flex can change direction depending on if its flex-direction: row or column
+  - Flex can change direction depending on if its flex-direction: row or column
 
 - How would you display an image with a hyperlink in HTML?
--  <a href="link"> <img src="image"> </a>
+  -  <a href="link"> <img src="image"> </a>
 
 - In the CSS box model, what is the ordering of the box layers starting at the inside and working out?
-- ![image](https://imgs.search.brave.com/0hZYiscNRonmZhrRuw2mf6hAHZrRsyYM6ns7MZp7EHw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbnRl/cm5ldGluZ2lzaGFy/ZC5uZXRsaWZ5LmFw/cC9jc3MtYm94LW1v/ZGVsLTczYTUyNS4y/M2IyZDY0Yi5wbmc)
+  - ![image](https://imgs.search.brave.com/0hZYiscNRonmZhrRuw2mf6hAHZrRsyYM6ns7MZp7EHw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbnRl/cm5ldGluZ2lzaGFy/ZC5uZXRsaWZ5LmFw/cC9jc3MtYm94LW1v/ZGVsLTczYTUyNS4y/M2IyZDY0Yi5wbmc)
 
 - What is the opening HTML tag for a paragraph, ordered list, unordered list, second level heading, first level heading, third level heading?
-- [<p>, <ol>, <ul>, <h2> <h1>, <h3>]
+  - [<p>, <ol>, <ul>, <h2> <h1>, <h3>]
 
 - How do you declare the document type to be html?
-- [<!DOCTYPE HTML>]
+  - [<!DOCTYPE HTML>]
 
 - Which of the following console command creates a remote shell session?
-- ssh
+  - ssh
 
 - What does the console command chmod, pwd, cd, ls, vim, nano, mkdir, mv, rm, man, ssh, ps, wget, sudo  do?
-- chmod:  changes file permissions for you, groups, and global
-- pwd: lists current location in files
-- cd: lets you navigate through files and directories
-- ls: lists all items in a directory
-- vim: console editor- has syntax highlighting
-- nano: consolde editor- basic editor
-- mkdir: make directory
-- rm: remove
-- man: Gives documentation for commands
-- ssh: Secure shell session
-- ps: Looks at running processes
-- wget: a way to download things from the internet in the console
-- sudo: Super user do, get admin privs. 
+  - chmod:  changes file permissions for you, groups, and global
+  - pwd: lists current location in files
+  - cd: lets you navigate through files and directories
+  - ls: lists all items in a directory
+  - vim: console editor- has syntax highlighting
+  - nano: consolde editor- basic editor
+  - mkdir: make directory
+  - rm: remove
+  - man: Gives documentation for commands
+  - ssh: Secure shell session
+  - ps: Looks at running processes
+  - wget: a way to download things from the internet in the console
+  - sudo: Super user do, get admin privs. 
 
 - By default, the HTML span element has a default CSS display property value of:
-- inline
+  - inline
 
 - Given the following HTML, what CSS would you use to set the text "trouble" to green and leave the "double" text unaffected?
-- text-color: green
+  - text-color: green
 
 - How would you use CSS to change all the div elements to have a background color of red?
-- div{background-color: red}
+  - div{background-color: red}
 
 - If you want to include JavaScript on an HTML page, which tag do you use?
-- <script> </script>
+  - <script> </script>
 
 
 ## Javascript
@@ -466,11 +466,24 @@ a.sort((v1, v2) => v1 - v2)
 
 
 - Is it possible to add new properties to javascript objects?
--   Yes, with object.property(Define property here)
+  -   Yes, with object.property(Define property here)
 
 -   What is the correct syntax for creating a javascript object?
--   const object = New Object(stuff) or const obj = {stuff}
+  -   const object = New Object(stuff) or const obj = {stuff}
 
+- Javascript Arrays:
+  - push:	Add an item to the end of the array	a.push(4)
+  - pop:	Remove an item from the end of the array	x = a.pop()
+  - slice:	Return a sub-array	a.slice(1,-1)
+  - sort:	Run a function to sort an array in place	a.sort((a,b) => b-a)
+  - values:	Creates an iterator for use with a for of loop	for (i of a.values()) {...}
+  - find:	Find the first item satisfied by a test function	a.find(i => i < 2)
+  - forEach:	Run a function on each array item	a.forEach(console.log)
+  - reduce:	Run a function to reduce each array item to a single item	a.reduce((a, c) => a + c)
+  - map:	Run a function to map an array to a new array	a.map(i => i+i)
+  - filter:	Run a function to remove items	a.filter(i => i%2)
+  - every:	Run a function to test if all items match	a.every(i => i < 3)
+  - some:	Run a function to test if any items match	a.some(i => i < 1)
 
 How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
 What does the following code using map with an array output?
@@ -484,14 +497,14 @@ Given the following HTML, what JavaScript could you use to set the text "animal"
 
 
 - Which of the following is true when the -la parameter is specified for the ls console command?
--   la lists all attributes of items in a directory
+  -   la lists all attributes of items in a directory
 
-  -  Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
+-  Which of the following is true for the domain name banana.fruit.bozo.click, which is the top level domain, which is a subdomain, which is a root domain?
   -  Top = click Root = Bozo Subdomains: 2nd banana, 1st fruit
 
 
 - Is a web certificate is necessary to use HTTPS.
-- Yes? duh?
+  - Yes? duh?
 
 - Can a DNS A record can point to an IP address or another A record.
   - A record points to an ip address a cname can point to an A record
