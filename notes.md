@@ -426,6 +426,14 @@ for (const val of arr) {
 // OUTPUT: 'a'
 // OUTPUT: 'b'
 
+
+
+What is valid javascript syntax for if, else, for, while, switch statements?
+if ()
+else ()
+
+
+
 String Functions:
 length:	The number of characters in the string
 indexOf():	The starting index of a given substring
@@ -471,6 +479,8 @@ a.sort((v1, v2) => v1 - v2)
 -   What is the correct syntax for creating a javascript object?
   -   const object = New Object(stuff) or const obj = {stuff}
 
+
+What does the following code using map with an array output?
 - Javascript Arrays:
   - push:	Add an item to the end of the array	a.push(4)
   - pop:	Remove an item from the end of the array	x = a.pop()
@@ -485,14 +495,51 @@ a.sort((v1, v2) => v1 - v2)
   - every:	Run a function to test if all items match	a.every(i => i < 3)
   - some:	Run a function to test if any items match	a.some(i => i < 1)
 
-How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
-What does the following code using map with an array output?
-What does the following line of Javascript do using a # selector?
-Which of the following are true? (mark all that are true about the DOM)
-What is valid javascript syntax for if, else, for, while, switch statements?
-What will the following code using Promises output when executed?
-Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
+Modules:
+![module image](https://samanthaming.gumlet.io/tidbits/79-module-cheatsheet.jpg.gz)
 
+
+- How would you use JavaScript to select an element with the id of “byu” and change the text color of that element to green?
+  - element = document.getElementById("Byu"); element.style.color = "greeen"
+
+What does the following line of Javascript do using a # selector?
+
+Which of the following are true? (mark all that are true about the DOM)
+  Tree structure: The DOM is a hierarchical structure, with the document element at the root and other elements as its children.
+  Nodes: Nodes are the basic building blocks of the DOM. They can represent elements, attributes, text, comments, and other types of content.
+  Properties: Nodes have properties that provide information about the node, such as its name, type, and parent node.
+  Methods: Nodes also have methods that allow you to manipulate the node, such as creating new nodes, deleting nodes, and changing node attributes.
+  Traversal: You can traverse the DOM tree to access different nodes and their properties.
+  Events: The DOM allows you to attach event handlers to nodes, which can be used to respond to user interactions and other events.
+  Dynamic content: The DOM can be used to create and manipulate dynamic content on a web page, such as updating elements based on user input or loading data from a server.
+  The DOM is a powerful 
+
+
+What will the following code using Promises output when executed?
+
+Given the following HTML, what JavaScript could you use to set the text "animal" to "crow" and leave the "fish" text unaffected?
+1. Accessing Elements
+getElementById: Directly access an element by its ID.
+getElementsByTagName: Retrieve a collection of elements by their tag name.
+getElementsByClassName: Get a collection of elements by their class name.
+querySelector: Selects the first element that matches a CSS selector.
+querySelectorAll: Selects all elements that match a CSS selector.   
+2. Changing Text Content
+textContent: Sets or gets the text content of an element.
+innerHTML: Sets or gets the HTML content of an element.
+3. Modifying Attributes
+setAttribute: Sets the value of an attribute.
+getAttribute: Gets the value of an attribute.
+removeAttribute: Removes an attribute.
+4. Creating Elements
+createElement: Creates a new element.
+appendChild: Adds a new child element to an existing element.
+insertBefore: Inserts a new child element before a specified reference node.
+5. Removing Elements
+removeChild: Removes a child element from its parent.
+6. Changing Styles
+style: Directly accesses the element's style properties.
+classList: Adds, removes, or toggles classes on an element.
 
 
 
