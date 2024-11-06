@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {BrowserRouter, createBrowserRouter, NavLink, Route, Routes} from "react-router-dom";
+import {BrowserRouter, createBrowserRouter, Link, NavLink, Route, Routes} from "react-router-dom";
 import './App.css'
 
 
@@ -21,13 +21,10 @@ return <>
 <div className="information">
   <h3 className="infotitle">Returning Player?</h3>
   <li>
-    <label htmlFor= username="username">Username</label>
-    <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)} />
+    <label>Username</label>
+    <input type="text" required value={username} onSubmit={(e) => setUsername(e.target.value)} />
+    <button onClick={() => setUsername('')}>Submit</button>
   </li>
-
-
-
-
 
 </div>
 </>
@@ -59,14 +56,11 @@ function App() {
       <NavLink to={"/session"}>Session</NavLink>
       </nav>
         <Routes>
-          <Route path="/login" component={Login} />
-          <Route path={'/maps'} component = {Maps} />
-          <Route path="/session" component={Session} />
+          <Route path="/login" element={<Login/>} />,
+          <Route path='/maps' element={<Maps/>} />,
+          <Route path="/session" element={<Session />} />
         </Routes>
-      
-      
     <div className='image'>
-      <Login/>
         </div>
       </BrowserRouter>
     </>
