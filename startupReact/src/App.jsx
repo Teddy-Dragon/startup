@@ -16,38 +16,81 @@ function Login(){
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+    function handleReturn(){
+      const user = document.getElementById(username).value;
+      setUsername(user);
+
+      const pass = document.getElementById(password).value;
+      setPassword(pass);
+      // if username and password is equivalent to database, login
+    }
+    function handleNew(){
+      const email = document.getElementById(email).value;
+      setEmail(email);
+      const username = document.getElementById(username).value;
+      setUsername(username);
+
+      const pass = document.getElementById(password).value;
+      const confirm = document.getElementById(confirmPassword).value;
+      if (pass === confirm) {
+        setConfirmPassword(pass);
+        //confirm the password and store new user in database
+      }
+
+    }
 
 return <>
 <div className="information">
   <h3 className="infotitle">Returning Player?</h3>
   <li>
-    <label>Username</label>
-    <input type="text" required value={username} onSubmit={(e) => setUsername(e.target.value)} />
-    <button onClick={() => setUsername('')}>Submit</button>
+    <form onSubmit={handleReturn}>
+      <label>Username</label>
+      <input type="text" id={username} required value={username}/>
+        <label> Password </label>
+        <input type="password" id={password} required value={password}/>
+        <button type="submit">Submit</button>
+    </form>
+
+  </li>
+  <h3> New Player? </h3>
+  <li>
+    <form onSubmit={handleNew}>
+      <label>Username</label>
+      <input type="text" id={username} required value={username}/>
+      <label>Password</label>
+      <input type="password" id={password} required value={password}/>
+      <label>Confirm Password</label>
+      <input type="password" id={confirmPassword} required value={password}/>
+      <label>Email</label>
+      <input type="email" id={email} required value={email}/>
+      <button type="submit">Submit</button>
+
+    </form>
   </li>
 
 </div>
 </>
 }
 
-function Maps(){
+function Maps() {
   return <>
-  <h1> I did something </h1>
+    <h1> I did something </h1>
   </>
 
 }
 
-function Session(){
+function Session() {
 
 }
-
 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+      <>
       <BrowserRouter>
       <nav>
       <NavLink to={"/"}>Home</NavLink>
