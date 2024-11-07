@@ -1,10 +1,23 @@
 import {NavLink} from "react-router-dom";
 import "./navigation.css"
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+
+function handleSignout(){
+
+    //send to homepage after registering that signout occured
+
+    return<>
+    <h1> You Signed out. Redirecting to Homepage</h1>
+    </>
+
+}
+
 
 
 function navigation() {
     return <>
-        <link href="navigation.css" rel="stylesheet" />
+        <link href="navigation.css" rel="stylesheet"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"/>
 
@@ -15,7 +28,7 @@ function navigation() {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                             aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
@@ -30,18 +43,14 @@ function navigation() {
                         </ul>
                     </div>
                 </div>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-                <li className="nav-item dropstart">
-                    <a className="nav-link dropdown-toggle link-dark" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Sign in
-                    </a>
-                    <ul className="dropdown-menu">
-                        <li><a className="nav-item dropdown-item link-dark" href="maps.html">Your Maps</a></li>
-                        <li><a className="dropdown-item link-dark" href="session.html">Start A Session</a></li>
-                        <li><a className="dropdown-item link-dark" href="index.html">Sign Out</a></li>
-                    </ul>
-                </li>
+                <NavDropdown id="dropdownMenu" className="navbar-nav" title={"Sign in"}>
+                    <NavDropdown.Item href="/"><NavLink to={'/maps'} className="nav-link link-dark">Maps</NavLink></NavDropdown.Item>
+                    <NavDropdown.Item href="/signup"><NavLink to={'/session'} className="nav-link link-dark">Start A Session</NavLink></NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/login" onClick={handleSignout}><NavLink to={"/"} className="nav-link link-dark">Sign out</NavLink></NavDropdown.Item>
+
+                </NavDropdown>
+
 
             </nav>
         </header>

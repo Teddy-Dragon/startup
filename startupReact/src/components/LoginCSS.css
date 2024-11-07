@@ -1,33 +1,43 @@
+.infotitle{
+    padding-top: 30px;
+}
 
 .information{
     padding-top: 30px;
     display: flex;
+    flex-direction: column;
     column-gap: 50px;
     justify-content: center;
     align-items: center;
     list-style: none;
 }
-
-.returning{
-    border-radius: 25px;
-    background: white;
-    padding: 20px;
-
+.both{
+    border-radius: 40px;
+    background-color: white;
+    padding: 30px;
 }
-.newplayer{
-    border-radius: 25px;
-    background: white;
-    padding: 20px;
+.label{
+    text-align: left;
 }
-.information .returning .submit {
+
+
+
+.information .return_info{
     width: 100%;
 }
-.information .returning .return_info{
+.information .label{
+    text-align: left;
+}
+
+.information .inputs{
+    width: 100%;
+
+}
+
+.information .label{
     width: 100%;
 }
-.infotitle{
-    padding-top: 30px;
-}
-.information .returning .new_info{
+.information .submit{
+    margin-top: 10px;
     width: 100%;
 }
