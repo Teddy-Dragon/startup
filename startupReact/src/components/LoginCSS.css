@@ -1,0 +1,33 @@
+
+.information{
+    padding-top: 30px;
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.returning{
+    border-radius: 25px;
+    background: white;
+    padding: 20px;
+
+}
+.newplayer{
+    border-radius: 25px;
+    background: white;
+    padding: 20px;
+}
+.information .returning .submit {
+    width: 100%;
+}
+.information .returning .return_info{
+    width: 100%;
+}
+.infotitle{
+    padding-top: 30px;
+}
+.information .returning .new_info{
+    width: 100%;
+}
