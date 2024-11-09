@@ -16,3 +16,7 @@ footer{
   background-size: cover;
   background-attachment: fixed;
 }
+
+.gap{
+  padding-top: 50px;
+}

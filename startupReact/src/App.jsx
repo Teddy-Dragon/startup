@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import {BrowserRouter, createBrowserRouter, Link, NavLink, Route, Routes} from "react-router-dom";
-import './App.css'
 import Navigation from "./components/navigation.jsx";
 import "./components/navigation.css"
 import Login from "./components/Login.jsx";
 import Maps from "./components/Maps.jsx";
+import Game from "./components/Game.jsx";
+import Session from "./components/Session.jsx";
+import './index.css'
 
 
 const router = createBrowserRouter([
@@ -18,20 +20,6 @@ const router = createBrowserRouter([
 ])
 
 
-
-function Session() {
-
-
-    return<>
-
-    </>
-}
-
-function Game(){
-
-}
-
-
 function App() {
  const [currentUser, setCurrentUser] = useState(null);
   return (
@@ -39,6 +27,7 @@ function App() {
         <BrowserRouter>
           <Navigation/>
           <div className='image'>
+              <div className={'gap'}>
             <Routes>
               <Route path="/login" element={<Login/>}/>,
               <Route path='/maps' element={<Maps/>}/>,
@@ -48,6 +37,7 @@ function App() {
             <footer>
               <a href="https://github.com/Teddy-Dragon/startup"> Kaylee's Github </a>
             </footer>
+              </div>
           </div>
         </BrowserRouter>
       </>
