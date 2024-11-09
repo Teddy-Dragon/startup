@@ -7,6 +7,7 @@ import Maps from "./components/Maps.jsx";
 import Game from "./components/Game.jsx";
 import Session from "./components/Session.jsx";
 import './index.css'
+import Home from "./components/home.jsx";
 
 
 const router = createBrowserRouter([
@@ -21,21 +22,22 @@ const router = createBrowserRouter([
 
 
 function App() {
- const [currentUser, setCurrentUser] = useState(null);
-  return (
-      <>
-        <BrowserRouter>
-          <Navigation/>
-          <div className='image'>
-              <div className={'gap'}>
-            <Routes>
-              <Route path="/login" element={<Login/>}/>,
-              <Route path='/maps' element={<Maps/>}/>,
-              <Route path="/session" element={<Session/>}/>
-              <Route path="/join game" element={<Game/>}/>
+    const [currentUser, setCurrentUser] = useState(null);
+    return (
+        <>
+            <BrowserRouter>
+                <Navigation/>
+                <div className='image'>
+                    <div className={'gap'}>
+                        <Routes>
+                            <Route path="/" element={<Home/>}/>,
+                            <Route path="/login" element={<Login/>}/>,
+                            <Route path='/maps' element={<Maps/>}/>,
+                            <Route path="/session" element={<Session/>}/>
+                            <Route path="/join game" element={<Game/>}/>
             </Routes>
             <footer>
-              <a href="https://github.com/Teddy-Dragon/startup"> Kaylee's Github </a>
+
             </footer>
               </div>
           </div>

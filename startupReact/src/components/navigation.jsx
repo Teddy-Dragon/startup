@@ -3,6 +3,7 @@ import "./navigation.css"
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
+
 function handleSignout(){
 
     //send to homepage after registering that signout occured
@@ -17,7 +18,6 @@ function handleSignout(){
 
 function navigation() {
     return <>
-        <link href="navigation.css" rel="stylesheet"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
         <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet"/>
 
@@ -25,11 +25,6 @@ function navigation() {
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
                 <div className="container-fluid">
                     <NavLink to={"/"} className="navbar-brand link-dark">Home</NavLink>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                    </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
