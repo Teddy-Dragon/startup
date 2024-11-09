@@ -8,6 +8,7 @@ import Game from "./components/Game.jsx";
 import Session from "./components/Session.jsx";
 import './index.css'
 import Home from "./components/home.jsx";
+import 'react-bootstrap'
 
 
 const router = createBrowserRouter([
@@ -37,7 +38,9 @@ function App() {
                             <Route path="/join game" element={<Game/>}/>
             </Routes>
             <footer>
-
+                <div className="text-center nav-link link-dark">
+                <a href={'https://github.com/Teddy-Dragon/startup'} >Kaylee's Github</a>
+                </div>
             </footer>
               </div>
           </div>

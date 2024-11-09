@@ -12,24 +12,15 @@ function Maps() {
 
     function handleSessionStart(){
         //get map information from database and send over to the session function
-        const [selectedMap, setSelectedMap] = useState(null);
+        console.log("You clicked on the host button. When I get access to a database, this will send over the map information to my Session component :)");
 
-        return <></>
     }
-    // function display(){
-    //     const pic = document.getElementById('mapImage').value;
-    //     console.log(pic);
-    //     setDisplay(URL.createObjectURL(pic));
-    //
-    //     return <>
-    //         </>
-    // }
 
     function showDisplay(event){
         const pic = event.target.files[0];
         console.log(pic);
-        URL.createObjectURL(pic);
-        setDisplay(pic);
+        const picURL = URL.createObjectURL(pic);
+        setDisplay(picURL);
         console.log(display);
 
     }
@@ -44,7 +35,9 @@ function Maps() {
     }
 
     return <>
-        <h2 className="title text-center">Your Maps</h2>
+        <div className="text-center">
+        <h2 className="title">Your Maps</h2>
+        </div>
         <div className="everything">
             <p/>
             <form>

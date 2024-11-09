@@ -16,7 +16,7 @@ function Login(){
         const pass = document.getElementById('password').value;
         setPassword(pass);
         // if username and password is equivalent to database, login
-        setUser
+        console.log(username + "is trying to log in. They are a returning player so verify with the database/authentication people that they are who they say they are")
 
     }
     function handleNew(){
@@ -31,6 +31,7 @@ function Login(){
             setPassword(pass);
             //confirm the password and store new user in database
         }
+        console.log(username + "is trying to log in. They are a new user, welcome! We will store you momentarily :)");
 
 
     }
