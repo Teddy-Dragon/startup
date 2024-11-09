@@ -45,4 +45,12 @@ For this deliverable I styled my website to match as closely as possible the fin
 - [x] Each page has flex components to help appearance adjust with resizing
 - [x] Consistent fonts and design throughout the 5 HTML pages
 - [ ] maps.html is not in its final design stage but a rough idea that will be modified once other elements are added
-  
+
+  ## React Deliverable
+  For this deliverable, I converted my HTML and CSS pages to React and added some functionality
+- [x] Login: For the Login page it now accepts values submitted and stores them for later use with login functionality
+- [x] Maps: Displays three Mock maps, however now new map information is submitted and stored in variables, a preview of the map image is also displayed before submission.
+- [x] Join a Game: Game code is now stored in a variable and after submission a mock loading screen is now displayed for later use with websocket
+- [ ] Session: The ability to name a session and to store said name in a variable was introduced, however much of this page will need a databse/websocket for further improvement
+- [x] Navigation: The navigation bar was updated to use Route to switch between different components. Sign out now displays a message to console before sending user back to home page for later use with login.
+- [x] Hooks are used throughout to find and set different variables and track user input and changes   
