@@ -1,0 +1,16 @@
+.code{
+    background: white;
+    padding: 20px;
+    border-radius: 25px;
+    display: inline-block;
+
+}
+.submit{
+    display: inline-flex;
+}
+h2{
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 25px;
+    display: inline-block;
+}
