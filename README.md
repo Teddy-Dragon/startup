@@ -46,7 +46,7 @@ For this deliverable I styled my website to match as closely as possible the fin
 - [x] Consistent fonts and design throughout the 5 HTML pages
 - [ ] maps.html is not in its final design stage but a rough idea that will be modified once other elements are added
 
-  ##React Deliverable
+  ## React Deliverable
   For this deliverable, I converted my HTML and CSS pages to React and added some functionality
 - [x] Login: For the Login page it now accepts values submitted and stores them for later use with login functionality
 - [x] Maps: Displays three Mock maps, however now new map information is submitted and stored in variables, a preview of the map image is also displayed before submission.
