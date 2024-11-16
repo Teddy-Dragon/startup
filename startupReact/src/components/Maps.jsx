@@ -18,10 +18,8 @@ function Maps() {
 
     function showDisplay(event){
         const pic = event.target.files[0];
-        console.log(pic);
         const picURL = URL.createObjectURL(pic);
         setDisplay(picURL);
-        console.log(display);
 
     }
 
@@ -32,7 +30,11 @@ function Maps() {
        setMapInfo(Info)
         const image = document.getElementById('mapImage').value;
        setMapImage(image)
+
+      console.log(name);
+
     }
+
 
     return <>
         <div className="text-center">

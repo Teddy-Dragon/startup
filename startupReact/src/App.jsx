@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import {BrowserRouter, createBrowserRouter, Link, NavLink, Route, Routes} from "react-router-dom";
 import Navigation from "./components/navigation.jsx";
 import "./components/navigation.css"
@@ -12,7 +12,7 @@ import 'react-bootstrap'
 
 
 const router = createBrowserRouter([
-  {path: "/home", name: 'Home', element: <App/>},
+  {path: "/", name: 'Home', element: <App/>},
   {path: "/login", name: 'Login', element: <Login/>},
   {path: "/maps", name: 'Maps',element: <Maps/>},
   {path: "/session", name: 'Session', element: <Session/>},
@@ -24,6 +24,9 @@ const router = createBrowserRouter([
 
 function App() {
     const [currentUser, setCurrentUser] = useState(null);
+    const [authState, setAuthState] = useState(null);
+
+
     return (
         <>
             <BrowserRouter>

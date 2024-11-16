@@ -1,6 +1,3 @@
-import react from 'react';
-import {useState} from "react";
-
 import './GameCSS.css'
 import React from "react";
 

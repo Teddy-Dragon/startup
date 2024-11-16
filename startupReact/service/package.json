@@ -1,0 +1,18 @@
+{
+  "name": "service",
+  "version": "",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Teddy-Dragon/startup.git"
+  },
+  "private": true,
+  "dependencies": {
+    "express": "^4.18.2",
+    "uuid": "^10.0.0"
+  }
+}
