@@ -1,7 +1,7 @@
 import React from 'react';
 import './SessionCSS.css'
 
-function Session(){
+function Session({user, map}){
     const [sessionName, setSessionName] = React.useState('');
 
 
@@ -43,7 +43,7 @@ function Session(){
 
                 <tbody>
                 <tr>
-                    <th> Host: Player123</th>
+                    <th> Host: {user} </th>
                     <th> Map Name: Map1</th>
                     <th> Icons</th>
                 </tr>

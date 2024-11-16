@@ -5,6 +5,7 @@ const app = express();
 
 let users = {}
 let currentUser={}
+let sessions = {}
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -16,23 +17,27 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/newPlayer', async (req, res) => {
+    console.log("I'm in here");
     const user = users[req.body.username];
     const currentUser = users[req.body.username];
     if (user) {
         console.log("You are already logged in");
+        res.status(400).send({msg: "You are already logged in my friend"});
     }
     else {
         const user = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4(), maps: {} };
         users[user.username] = user;
-
-        res.send({ token: user.token });
+        console.log(user.token);
+        res.setHeader('Content-Type', 'application/json');
+        res.send({token: user.token});
     }
 
 
 });
 
-apiRouter.post('auth/returning', async (req, res) => {
+apiRouter.post('/auth/returning', async (req, res) => {
     const user = users[req.body.username];
+    console.log("I'm in here");
     if(user){
         if(req.body.password === user.password){
             user.token = uuid.v4();
@@ -40,8 +45,14 @@ apiRouter.post('auth/returning', async (req, res) => {
 
         }
         else{
-            console.log("I don't know you? Try creating an account")
+            console.log("Wrong password")
+            res.status(401).send({ msg: 'This is the correct error' });
         }
+
+    }
+    else{
+        console.log("I don't know you? Try creating an account")
+        res.status(401).send({ msg: 'tHIS IS THE CORRECT ERROR PLEASE' });
     }
 })
 
@@ -59,13 +70,23 @@ apiRouter.get('/maps', (_req, res) => {
     res.send(currentUser.maps);
 })
 
-apiRouter.post('maps/upload', (req, res) => {
+apiRouter.post('/maps/upload', (req, res) => {
     if(submitMap(req.body.mapName, req.body.mapInfo, req.body.mapImage)){
      console.log("Upload Successful");
     }
     else {
-        console.log("Upload Failed");
+        res.status(401).send({ msg: 'The upload failed' });
     }
+})
+apiRouter.post('/game', (req, res) => {
+    const session = sessions[req.body.code];
+    if(session){
+        res.send("There is a session with that code");
+    }
+    else{
+        res.send("There is no session with that code");
+    }
+
 })
 
 

@@ -4,34 +4,46 @@ import App from "../App.jsx";
 import 'react-bootstrap'
 
 
-function Login(){
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [username, setUsername] = useState('')
 
-    function handleReturn(){
+function Login({setUser, setState}){
+
+  async function handleReturn(){
         const user = document.getElementById('username').value;
-        setUsername(user);
+
 
         const pass = document.getElementById('password').value;
-        setPassword(pass);
+
         // if username and password is equivalent to database, login
-        console.log(username + "is trying to log in. They are a returning player so verify with the database/authentication people that they are who they say they are")
+        let returning = await fetch('/api/auth/returning',{
+            method: 'post',
+            headers: {'dataType': 'application/json'},
+            body: JSON.stringify({username: user, password: pass}),
+        })
+        let token = await returning.json();
+        setState(token);
+        setUser(user);
 
     }
-    function handleNew(){
+  async function handleNew(){
         const email = document.getElementById('email').value;
-        setEmail(email);
-        const username = document.getElementById('newUsername').value;
-        setUsername(username);
 
+        const username = document.getElementById('newUsername').value;
         const pass = document.getElementById('newPassword').value;
         const confirm = document.getElementById('confirmPassword').value;
         if (pass === confirm) {
-            setPassword(pass);
-            //confirm the password and store new user in database
+            let response = await fetch('/api/auth/newPlayer', {
+                method: 'POST',
+                headers: {'dataType': 'application/json'},
+                body: JSON.stringify({username: username, password: pass, email: email}),
+            });
+            let data = await response.json();
+            setState(data);
+            setUser(username);
+            console.log("This is the user Token",data);
         }
-        console.log(username + "is trying to log in. They are a new user, welcome! We will store you momentarily :)");
+       else{
+           console.log("Do your passwords match?")
+        }
 
 
     }
@@ -44,7 +56,7 @@ function Login(){
                 <div className="returning">
                     <li>
                         <div className="return_info">
-                            <form onSubmit={handleReturn} className="returning">
+                            <div className="returning">
                                 <li>
                                     <label className="label">Username</label>
                                     <br/>
@@ -55,8 +67,8 @@ function Login(){
                                     <br/>
                                     <input className="inputs" type="password" id={'password'} required/>
                                 </li>
-                                <button type="submit" className="submit btn btn-secondary">Login</button>
-                            </form>
+                                <button onClick={handleReturn} type="submit" className="submit btn btn-secondary">Login</button>
+                            </div>
                         </div>
                     </li>
                 </div>
@@ -64,7 +76,7 @@ function Login(){
                 <h3> New Player? </h3>
                 <div className="newplayer">
                     <li>
-                        <form onSubmit={handleNew}>
+
                             <label className="label">Username</label>
                             <input className="inputs" type="text" id={'newUsername'} required/>
                             <br/>
@@ -80,9 +92,8 @@ function Login(){
                             <br/>
                             <input className="inputs"  type="email" id={'email'} required/>
                             <br/>
-                            <button type="submit" className="submit btn btn-secondary">Sign Up</button>
+                            <button type="submit" onClick={handleNew} className="submit btn btn-secondary">Sign Up</button>
 
-                        </form>
                     </li>
                 </div>
             </div>

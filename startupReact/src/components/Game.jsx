@@ -21,6 +21,11 @@ function Game(){
     function setCode(){
         const code = document.getElementById('code').value;
         setGameCode(code);
+        fetch('/api/game', {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({code: code})
+        }).then(res => console.log(res));
 
     }
 
