@@ -4,25 +4,19 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
 
 
-function handleSignout(){
-
-    //send to homepage after registering that signout occured
-
-    return<>
-    <h1> You Signed out. Redirecting to Homepage</h1>
-    </>
-
-}
-
-
 
 function navigation() {
 
     function handleSignout(){
 
-        //send to homepage after registering that signout occured
+        fetch("api/auth/signout", {
+            method: "DELETE",
+            headers: {'dataType': 'application/json'},
+            body: JSON.stringify({username})
+        })
 
-       console.log("You signed out");
+
+        console.log("You signed out");
     }
     return <>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
