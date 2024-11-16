@@ -25,19 +25,20 @@ const router = createBrowserRouter([
 function App() {
     const [currentUser, setCurrentUser] = useState(null);
     const [authState, setAuthState] = useState(null);
+    const [currentMap, setCurrentMap] = React.useState(null);
 
 
     return (
         <>
             <BrowserRouter>
-                <Navigation/>
+                <Navigation user={currentUser} setUser = {setCurrentUser} authState={authState} setState = {setAuthState} />
                 <div className='image'>
                     <div className={'gap'}>
                         <Routes>
                             <Route path="/" element={<Home/>}/>,
-                            <Route path="/login" element={<Login/>}/>,
-                            <Route path='/maps' element={<Maps/>}/>,
-                            <Route path="/session" element={<Session/>}/>
+                            <Route path="/login" element={<Login setUser = {setCurrentUser} setState = {setAuthState} />}/>,
+                            <Route path='/maps' element={<Maps user = {currentUser} setMap={setCurrentMap} />}/>,
+                            <Route path="/session" element={<Session user = {currentUser} map = {currentMap}/>}/>
                             <Route path="/join game" element={<Game/>}/>
             </Routes>
             <footer>

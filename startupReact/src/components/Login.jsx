@@ -5,23 +5,24 @@ import 'react-bootstrap'
 
 
 
-function Login(){
-    const [userToken, setUserToken] = useState(null);
+function Login({setUser, setState}){
 
-    function handleReturn(){
+  async function handleReturn(){
         const user = document.getElementById('username').value;
 
 
         const pass = document.getElementById('password').value;
 
         // if username and password is equivalent to database, login
-        fetch('/api/auth/returning',{
+        let returning = await fetch('/api/auth/returning',{
             method: 'post',
             headers: {'dataType': 'application/json'},
             body: JSON.stringify({username: user, password: pass}),
-        }).then(res => setUserToken(res));
+        })
+        let token = await returning.json();
+        setState(token);
+        setUser(user);
 
-        console.log("This is the user Token",userToken);
     }
   async function handleNew(){
         const email = document.getElementById('email').value;
@@ -36,6 +37,8 @@ function Login(){
                 body: JSON.stringify({username: username, password: pass, email: email}),
             });
             let data = await response.json();
+            setState(data);
+            setUser(username);
             console.log("This is the user Token",data);
         }
        else{

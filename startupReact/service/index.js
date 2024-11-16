@@ -5,6 +5,7 @@ const app = express();
 
 let users = {}
 let currentUser={}
+let sessions = {}
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
@@ -76,6 +77,16 @@ apiRouter.post('/maps/upload', (req, res) => {
     else {
         res.status(401).send({ msg: 'The upload failed' });
     }
+})
+apiRouter.post('/game', (req, res) => {
+    const session = sessions[req.body.code];
+    if(session){
+        res.send("There is a session with that code");
+    }
+    else{
+        res.send("There is no session with that code");
+    }
+
 })
 
 
