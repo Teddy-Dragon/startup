@@ -53,4 +53,10 @@ For this deliverable I styled my website to match as closely as possible the fin
 - [x] Join a Game: Game code is now stored in a variable and after submission a mock loading screen is now displayed for later use with websocket
 - [ ] Session: The ability to name a session and to store said name in a variable was introduced, however much of this page will need a databse/websocket for further improvement
 - [x] Navigation: The navigation bar was updated to use Route to switch between different components. Sign out now displays a message to console before sending user back to home page for later use with login.
-- [x] Hooks are used throughout to find and set different variables and track user input and changes   
+- [x] Hooks are used throughout to find and set different variables and track user input and changes
+
+## Service Deliveravble
+- [x] Created an HTTP service using Node.js and Express. There is a service directory and index.js file with appropriate backend calls
+- [x] Frontend served up using Express static middleware and makes calls to my service endpoints with login and signout and stores user tokens
+- [x] backend has end points for current functionality with login, signout, and create user.
+- [ ] Other endpoints are made although use is limited without a database. There are calls to upload a map and to search for active session, but these are not called in front end currently.  
