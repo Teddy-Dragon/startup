@@ -1,9 +1,12 @@
 const express = require('express');
 const uuid = require('uuid');
 const app = express();
+const {MongoClient} = require('mongodb');
+const config = require('./dbConfig.json');
+const database = require('myMongo')
 
 
-let users = {}
+let users = {};
 let currentUser={}
 let sessions = {}
 
@@ -17,7 +20,6 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/newPlayer', async (req, res) => {
-    console.log("I'm in here");
     const user = users[req.body.username];
     const currentUser = users[req.body.username];
     if (user) {
@@ -25,9 +27,11 @@ apiRouter.post('/auth/newPlayer', async (req, res) => {
         res.status(400).send({msg: "You are already logged in my friend"});
     }
     else {
-        const user = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4(), maps: {} };
-        users[user.username] = user;
+        const newUser = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4(), maps: {} };
+        users[newUser.username] = newUser;
         console.log(user.token);
+        await database(2, newUser);
+        console.log("The await has been fulfilled");
         res.setHeader('Content-Type', 'application/json');
         res.send({token: user.token});
     }
@@ -36,19 +40,14 @@ apiRouter.post('/auth/newPlayer', async (req, res) => {
 });
 
 apiRouter.post('/auth/returning', async (req, res) => {
-    const user = users[req.body.username];
-    console.log("I'm in here");
-    if(user){
-        if(req.body.password === user.password){
-            user.token = uuid.v4();
-            res.send({ token: user.token });
-
-        }
-        else{
-            console.log("Wrong password")
-            res.status(401).send({ msg: 'This is the correct error' });
-        }
-
+    const checkUser = {
+        username: req.body.username,
+        password: req.body.password,
+    }
+    const user = database(1, checkUser);
+    if(user) {
+        user.token = uuid.v4();
+        res.send(user.token);
     }
     else{
         console.log("I don't know you? Try creating an account")
@@ -63,7 +62,8 @@ apiRouter.delete('/auth/signout', (req, res) => {
         currentUser = null;
     }
     else{
-        console.log("Sign out Failed- Were you even logged in?")
+        console.log("Sign out Failed- Were you even logged in?");
+        res.status(204).end();
     }
 })
 apiRouter.get('/maps', (_req, res) => {
@@ -106,6 +106,6 @@ function submitMap(mapName, mapInfo, mapImage){
 
 
 }
-app.listen(port, () => {
+app.listen(port, "localhost", 10, () => {
     console.log(`Listening on port ${port}`);
 });
