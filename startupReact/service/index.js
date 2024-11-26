@@ -3,7 +3,7 @@ const uuid = require('uuid');
 const app = express();
 const {MongoClient} = require('mongodb');
 const config = require('./dbConfig.json');
-const database = require('myMongo')
+const database = require('./myMongo.js')
 
 
 let users = {};
@@ -29,11 +29,11 @@ apiRouter.post('/auth/newPlayer', async (req, res) => {
     else {
         const newUser = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4(), maps: {} };
         users[newUser.username] = newUser;
-        console.log(user.token);
+        console.log(newUser.token);
         await database(2, newUser);
         console.log("The await has been fulfilled");
         res.setHeader('Content-Type', 'application/json');
-        res.send({token: user.token});
+        res.send({token: newUser.token});
     }
 
 
@@ -45,9 +45,17 @@ apiRouter.post('/auth/returning', async (req, res) => {
         password: req.body.password,
     }
     const user = database(1, checkUser);
+    console.log(user);
     if(user) {
-        user.token = uuid.v4();
-        res.send(user.token);
+        if(user.password === req.body.password) {
+            user.token = uuid.v4();
+            res.send(user.token);
+        }
+        else{
+            console.log("Something");
+            res.status(400).send({msg: "something went wrong "});
+        }
+
     }
     else{
         console.log("I don't know you? Try creating an account")

@@ -12,14 +12,16 @@ function Login({setUser, setState}){
 
 
         const pass = document.getElementById('password').value;
+        console.log(user + " and password:" + pass + "\n");
+        console.log(JSON.stringify({username: user, password: pass}));
 
         // if username and password is equivalent to database, login
-        let returning = await fetch('/api/auth/returning',{
+        const returning = await fetch('/api/auth/returning',{
             method: 'post',
-            headers: {'dataType': 'application/json'},
+            headers: {'Content-type': 'application/json'},
             body: JSON.stringify({username: user, password: pass}),
         })
-        let token = await returning.json();
+        const token = await returning;
         setState(token);
         setUser(user);
 

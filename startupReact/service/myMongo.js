@@ -4,12 +4,21 @@ const config = require('./dbConfig.json');
 async function main(number, user) {
     // 1: returning user. Check database to see if user already exists
     // 2: new user, Add information to database
-    // 3: user maps, upload file to databse under individual user.
+    // 3: user maps, upload file to database under individual user.
 
+    const UserScheme = {
+        username: user.username,
+        password: user.password,
+        email: user.email,
+        token: user.token,
+        maps: user.maps,
+    }
 
     const url = `mongodb+srv://${config.userName}:${config.password}${config.hostName}`;
 
     const client = new MongoClient(url);
+    const database = client.db('User_Info');
+    const playerCollection = database.collection('Players');
 
     if(number === 1){
         await checkUser(user);
@@ -19,29 +28,12 @@ async function main(number, user) {
     }
 
 
-    async function checkUser(user){
-        const toCheckName = user.username;
-       const check = client.db().User_Info.find(toCheckName);
-        if(check){
-            const verify = client.db().User_Info.toCheckName.find(user.password);
-            if(verify){
-                console.log("Successfully logged in");
-                return true;
-            }
-            else{
-                console.log("Wrong password");
-                return false;
-            }
-        }
-        else{
-            console.log("Username not found");
-            return false;
-        }
-        console.error("Inside the checkUser function, something went wrong.");
+    async function checkUser(){
+        return playerCollection.findOne(UserScheme);
     }
 
-    async function submitUser(user){
-        client.db().User_Info.insertOne(user);
+    async function submitUser(){
+        await playerCollection.insertOne(UserScheme);
 
     }
 
