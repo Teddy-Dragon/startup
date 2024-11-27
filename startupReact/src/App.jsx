@@ -36,7 +36,7 @@ function App() {
                     <div className={'gap'}>
                         <Routes>
                             <Route path="/" element={<Home/>}/>,
-                            <Route path="/login" element={<Login setUser = {setCurrentUser} setState = {setAuthState} />}/>,
+                            <Route path="/login" element={<Login setUser = {setCurrentUser} currentState = {authState} setState = {setAuthState} />}/>,
                             <Route path='/maps' element={<Maps user = {currentUser} setMap={setCurrentMap} />}/>,
                             <Route path="/session" element={<Session user = {currentUser} map = {currentMap}/>}/>
                             <Route path="/join game" element={<Game/>}/>

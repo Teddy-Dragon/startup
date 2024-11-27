@@ -5,9 +5,9 @@ import 'react-bootstrap'
 
 
 
-function Login({setUser, setState}){
+function Login({setUser, currentState, setAuthState}){
 
-  async function handleReturn(){
+  function handleReturn(){
         const user = document.getElementById('username').value;
 
 
@@ -16,32 +16,32 @@ function Login({setUser, setState}){
         console.log(JSON.stringify({username: user, password: pass}));
 
         // if username and password is equivalent to database, login
-        const returning = await fetch('/api/auth/returning',{
+        const returning = fetch('/api/auth/returning',{
             method: 'post',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({username: user, password: pass}),
-        })
-        const token = await returning;
-        setState(token);
-        setUser(user);
-
+        }).then(res => (currentState = res));
+        console.log(currentState);
+        console.log(setAuthState);
+        if(currentState != null){
+            setUser(user);
+        }
     }
-  async function handleNew(){
+
+  function handleNew(){
         const email = document.getElementById('email').value;
 
         const username = document.getElementById('newUsername').value;
         const pass = document.getElementById('newPassword').value;
         const confirm = document.getElementById('confirmPassword').value;
         if (pass === confirm) {
-            let response = await fetch('/api/auth/newPlayer', {
+            const response = fetch('/api/auth/newPlayer', {
                 method: 'POST',
-                headers: {'dataType': 'application/json'},
+                headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({username: username, password: pass, email: email}),
-            });
-            let data = await response.json();
-            setState(data);
+            }).then(res=> (setAuthState(res)));
             setUser(username);
-            console.log("This is the user Token",data);
+            console.log("This is the user Token", response);
         }
        else{
            console.log("Do your passwords match?")

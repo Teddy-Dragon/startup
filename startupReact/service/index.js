@@ -27,33 +27,34 @@ apiRouter.post('/auth/newPlayer', async (req, res) => {
         res.status(400).send({msg: "You are already logged in my friend"});
     }
     else {
+        console.log(req.body);
         const newUser = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4(), maps: {} };
         users[newUser.username] = newUser;
         console.log(newUser.token);
         await database(2, newUser);
         console.log("The await has been fulfilled");
         res.setHeader('Content-Type', 'application/json');
-        res.send({token: newUser.token});
+        res.send(user.token);
     }
 
 
 });
 
 apiRouter.post('/auth/returning', async (req, res) => {
-    const checkUser = {
+    const person = {
         username: req.body.username,
         password: req.body.password,
     }
-    const user = database(1, checkUser);
-    console.log(user);
+    const user = database(1, person);
+    console.log("This is the database thing->  " + user);
     if(user) {
         if(user.password === req.body.password) {
             user.token = uuid.v4();
             res.send(user.token);
         }
         else{
-            console.log("Something");
-            res.status(400).send({msg: "something went wrong "});
+            console.log("Did not find a match");
+            res.send(null);
         }
 
     }
