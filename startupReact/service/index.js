@@ -1,9 +1,12 @@
 const express = require('express');
 const uuid = require('uuid');
 const app = express();
+const {MongoClient} = require('mongodb');
+const config = require('./dbConfig.json');
+const database = require('./myMongo.js')
 
 
-let users = {}
+let users = {};
 let currentUser={}
 let sessions = {}
 
@@ -17,7 +20,6 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/newPlayer', async (req, res) => {
-    console.log("I'm in here");
     const user = users[req.body.username];
     const currentUser = users[req.body.username];
     if (user) {
@@ -25,35 +27,39 @@ apiRouter.post('/auth/newPlayer', async (req, res) => {
         res.status(400).send({msg: "You are already logged in my friend"});
     }
     else {
-        const user = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4(), maps: {} };
-        users[user.username] = user;
-        console.log(user.token);
+        console.log(req.body);
+        const newUser = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4(), maps: {} };
+        users[newUser.username] = newUser;
+        console.log(newUser.token);
+        await database(2, newUser);
+        console.log("The await has been fulfilled");
         res.setHeader('Content-Type', 'application/json');
-        res.send({token: user.token});
+        res.send(user.token);
     }
 
 
 });
 
 apiRouter.post('/auth/returning', async (req, res) => {
-    const user = users[req.body.username];
-    console.log("I'm in here");
-    if(user){
-        if(req.body.password === user.password){
-            user.token = uuid.v4();
-            res.send({ token: user.token });
-
-        }
-        else{
-            console.log("Wrong password")
-            res.status(401).send({ msg: 'This is the correct error' });
-        }
-
+    const person = {
+        username: req.body.username,
+        password: req.body.password,
     }
-    else{
-        console.log("I don't know you? Try creating an account")
-        res.status(401).send({ msg: 'tHIS IS THE CORRECT ERROR PLEASE' });
-    }
+    database(1, person).then(result => {
+        let newRes = null;
+        if(result.token) {
+            newRes = result.token;
+        }
+        else {
+            console.log("Did not find a match");
+        }
+        return newRes
+        }).then(newRes => {
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json({"token": newRes});
+        });
+
+
 })
 
 apiRouter.delete('/auth/signout', (req, res) => {
@@ -63,7 +69,8 @@ apiRouter.delete('/auth/signout', (req, res) => {
         currentUser = null;
     }
     else{
-        console.log("Sign out Failed- Were you even logged in?")
+        console.log("Sign out Failed- Were you even logged in?");
+        res.status(204).end();
     }
 })
 apiRouter.get('/maps', (_req, res) => {
@@ -106,6 +113,6 @@ function submitMap(mapName, mapInfo, mapImage){
 
 
 }
-app.listen(port, () => {
+app.listen(port, "localhost", 10, () => {
     console.log(`Listening on port ${port}`);
 });
