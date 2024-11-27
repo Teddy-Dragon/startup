@@ -55,7 +55,8 @@ apiRouter.post('/auth/returning', async (req, res) => {
         }
         return newRes
         }).then(newRes => {
-            res.send(newRes);
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json({"token": newRes});
         });
 
 
