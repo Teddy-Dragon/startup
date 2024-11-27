@@ -20,12 +20,10 @@ function Login({setUser, currentState, setAuthState}){
             method: 'post',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({username: user, password: pass}),
-        }).then(res => (currentState = res));
-        console.log(currentState);
-        console.log(setAuthState);
-        if(currentState != null){
-            setUser(user);
-        }
+        }).then(res => console.log(res.body));
+        // if(currentState != null){
+        //     setUser(user);
+        // }
     }
 
   function handleNew(){
@@ -41,7 +39,6 @@ function Login({setUser, currentState, setAuthState}){
                 body: JSON.stringify({username: username, password: pass, email: email}),
             }).then(res=> (setAuthState(res)));
             setUser(username);
-            console.log("This is the user Token", response);
         }
        else{
            console.log("Do your passwords match?")

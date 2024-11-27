@@ -1,7 +1,8 @@
 const {MongoClient} = require('mongodb');
 const config = require('./dbConfig.json');
+const {response} = require("express");
 
-async function main(number, user) {
+ function main(number, user) {
     // 1: returning user. Check database to see if user already exists
     // 2: new user, Add information to database
     // 3: user maps, upload file to database under individual user.
@@ -9,9 +10,13 @@ async function main(number, user) {
     const UserScheme = {
         username: user.username,
         password: user.password,
+    }
+    const newUserScheme = {
+        username: user.username,
+        password: user.password,
         email: user.email,
         token: user.token,
-        maps: user.maps,
+        maps: user.maps
     }
 
     const url = `mongodb+srv://${config.userName}:${config.password}${config.hostName}`;
@@ -21,19 +26,19 @@ async function main(number, user) {
     const playerCollection = database.collection('Players');
 
     if(number === 1){
-        await checkUser(user);
+        return  checkUser();
     }
     if(number === 2){
-        await submitUser(user);
+        return submitUser();
     }
 
 
-    async function checkUser(){
-        return playerCollection.findOne(UserScheme);
+    function checkUser() {
+       return playerCollection.findOne(UserScheme);
     }
 
-    async function submitUser(){
-        await playerCollection.insertOne(UserScheme);
+    async function submitUser() {
+        return playerCollection.insertOne(newUserScheme);
 
     }
 

@@ -45,23 +45,20 @@ apiRouter.post('/auth/returning', async (req, res) => {
         username: req.body.username,
         password: req.body.password,
     }
-    const user = database(1, person);
-    console.log("This is the database thing->  " + user);
-    if(user) {
-        if(user.password === req.body.password) {
-            user.token = uuid.v4();
-            res.send(user.token);
+    database(1, person).then(result => {
+        let newRes = null;
+        if(result.token) {
+            newRes = result.token;
         }
-        else{
+        else {
             console.log("Did not find a match");
-            res.send(null);
         }
+        return newRes
+        }).then(newRes => {
+            res.send(newRes);
+        });
 
-    }
-    else{
-        console.log("I don't know you? Try creating an account")
-        res.status(401).send({ msg: 'tHIS IS THE CORRECT ERROR PLEASE' });
-    }
+
 })
 
 apiRouter.delete('/auth/signout', (req, res) => {
