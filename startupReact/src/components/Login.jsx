@@ -5,7 +5,7 @@ import 'react-bootstrap'
 
 
 
-function Login({setUser, currentState, setAuthState}){
+function Login({setUser, getUser, currentState, setAuthState}){
 
   function handleReturn(){
         const user = document.getElementById('username').value;
@@ -20,10 +20,17 @@ function Login({setUser, currentState, setAuthState}){
             method: 'post',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({username: user, password: pass}),
-        }).then(res => console.log(res.body));
-        // if(currentState != null){
-        //     setUser(user);
-        // }
+        }).then(res => res.json()).then(res => {
+            setAuthState(res.token);
+            console.log(res.token);
+            console.log(currentState);
+            console.log(setAuthState);
+        });
+        console.log(currentState);
+        if(currentState != null){
+            setUser(user);
+            console.log(getUser);
+        }
     }
 
   function handleNew(){
