@@ -5,7 +5,7 @@ import 'react-bootstrap'
 
 
 
-function Login({setUser, currentState, setAuthState}){
+function Login({getStates, setStates}){
 
   function handleReturn(){
         const user = document.getElementById('username').value;
@@ -20,10 +20,16 @@ function Login({setUser, currentState, setAuthState}){
             method: 'post',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({username: user, password: pass}),
-        }).then(res => console.log(res.body));
-        // if(currentState != null){
-        //     setUser(user);
-        // }
+        }).then(res => res.json()).then(res => {
+            console.log(res.token);
+            setStates('auth',res.token);
+            console.log(getStates('auth'))
+            console.log(getStates('user'))
+            if(res.token !== null){
+                setStates('user',user);
+            }
+        });
+
     }
 
   function handleNew(){
@@ -37,8 +43,8 @@ function Login({setUser, currentState, setAuthState}){
                 method: 'POST',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({username: username, password: pass, email: email}),
-            }).then(res=> (setAuthState(res)));
-            setUser(username);
+            }).then(res=> (setStates('auth', res)));
+            setStates('user',username);
         }
        else{
            console.log("Do your passwords match?")

@@ -1,6 +1,7 @@
 const {MongoClient} = require('mongodb');
 const config = require('./dbConfig.json');
 const {response} = require("express");
+const maps = require("../src/components/Maps");
 
  function main(number, user) {
     // 1: returning user. Check database to see if user already exists
@@ -43,4 +44,26 @@ const {response} = require("express");
     }
 
 }
-module.exports = main;
+
+function submitmap(user, map){
+    const url = `mongodb+srv://${config.userName}:${config.password}${config.hostName}`;
+    const client = new MongoClient(url);
+    const database = client.db('User_Info');
+    const playerCollection = database.collection('Players');
+    const person = playerCollection.findOne(user.username);
+
+    return person.maps.insertOne(map);
+
+ }
+
+ function getmap(user){
+     const url = `mongodb+srv://${config.userName}:${config.password}${config.hostName}`;
+     const client = new MongoClient(url);
+     const database = client.db('User_Info');
+     const playerCollection = database.collection('Players');
+     const person = playerCollection.findOne(user.username);
+
+     return person.maps;
+
+ }
+module.exports = {main, submitmap, getmap};

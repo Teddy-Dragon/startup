@@ -34,7 +34,7 @@ apiRouter.post('/auth/newPlayer', async (req, res) => {
         await database(2, newUser);
         console.log("The await has been fulfilled");
         res.setHeader('Content-Type', 'application/json');
-        res.send(user.token);
+        res.send(newUser.token);
     }
 
 
@@ -47,7 +47,7 @@ apiRouter.post('/auth/returning', async (req, res) => {
     }
     database(1, person).then(result => {
         let newRes = null;
-        if(result.token) {
+        if(result !== null) {
             newRes = result.token;
         }
         else {
@@ -55,8 +55,8 @@ apiRouter.post('/auth/returning', async (req, res) => {
         }
         return newRes
         }).then(newRes => {
-            res.setHeader('Content-Type', 'application/json');
-            res.status(200).json({"token": newRes});
+            console.log(newRes);
+            res.status(201).json({"token": newRes});
         });
 
 
@@ -74,10 +74,12 @@ apiRouter.delete('/auth/signout', (req, res) => {
     }
 })
 apiRouter.get('/maps', (_req, res) => {
-    res.send(currentUser.maps);
+    res.send(database.getmap(currentUser));
+
 })
 
 apiRouter.post('/maps/upload', (req, res) => {
+    console.log(req.body);
     if(submitMap(req.body.mapName, req.body.mapInfo, req.body.mapImage)){
      console.log("Upload Successful");
     }
@@ -99,10 +101,14 @@ apiRouter.post('/game', (req, res) => {
 
 function submitMap(mapName, mapInfo, mapImage){
     currentUser.maps[mapName] = {name: mapName, info: mapInfo, image: mapImage};
+    const mapScheme =
+        {
+            mapName: mapName,
+        mapInfo: mapInfo,
+        mapImage: mapImage
+        };
     if(currentUser.maps[mapName]){
-        console.log("You've just submitted a map named:")
-        console.log(mapName);
-        console.log("Here is some information about it: ", mapInfo);
+        database.submitmap(currentUser, mapScheme);
         return true;
 
     }
