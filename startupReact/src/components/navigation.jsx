@@ -8,6 +8,9 @@ import React from 'react';
 function navigation({user, setUser, authState, setState}) {
 
    function handleSignout(){
+       localStorage.removeItem("currentUser");
+       localStorage.removeItem("authState");
+       console.log("We hit this in signout");
 
        fetch("api/auth/signout", {
             method: "DELETE",
@@ -39,7 +42,7 @@ function navigation({user, setUser, authState, setState}) {
                         </ul>
                     </div>
                 </div>
-                {authState &&
+                {localStorage.getItem('authState') &&
                 <NavDropdown id="dropdownMenu" className="navbar-nav" title={user}>
                     <NavDropdown.Item href="/maps"><NavLink to={'/maps'} className="nav-link link-dark">Maps</NavLink></NavDropdown.Item>
                     <NavDropdown.Item href="/signup"><NavLink to={'/session'} className="nav-link link-dark">Start A Session</NavLink></NavDropdown.Item>

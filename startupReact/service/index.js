@@ -4,6 +4,8 @@ const app = express();
 const {MongoClient} = require('mongodb');
 const config = require('./dbConfig.json');
 const database = require('./myMongo.js')
+const mapDatabase = require('./Mongo2');
+
 
 
 let users = {};
@@ -54,10 +56,10 @@ apiRouter.post('/auth/returning', async (req, res) => {
             console.log("Did not find a match");
         }
         return newRes
-        }).then(newRes => {
-            console.log(newRes);
-            res.status(201).json({"token": newRes});
-        });
+    }).then(newRes => {
+        console.log(newRes);
+        res.status(201).json({"token": newRes});
+    });
 
 
 })
@@ -74,14 +76,14 @@ apiRouter.delete('/auth/signout', (req, res) => {
     }
 })
 apiRouter.get('/maps', (_req, res) => {
-    res.send(database.getmap(currentUser));
+    res.send(mapDatabase(4, currentUser.token, null));
 
 })
 
 apiRouter.post('/maps/upload', (req, res) => {
     console.log(req.body);
     if(submitMap(req.body.mapName, req.body.mapInfo, req.body.mapImage)){
-     console.log("Upload Successful");
+        console.log("Upload Successful");
     }
     else {
         res.status(401).send({ msg: 'The upload failed' });
@@ -100,15 +102,14 @@ apiRouter.post('/game', (req, res) => {
 
 
 function submitMap(mapName, mapInfo, mapImage){
-    currentUser.maps[mapName] = {name: mapName, info: mapInfo, image: mapImage};
     const mapScheme =
         {
             mapName: mapName,
-        mapInfo: mapInfo,
-        mapImage: mapImage
+            mapInfo: mapInfo,
+            mapImage: mapImage
         };
-    if(currentUser.maps[mapName]){
-        database.submitmap(currentUser, mapScheme);
+    if(mapScheme.mapName !== null){
+        mapDatabase(1, currentUser.token, mapScheme);
         return true;
 
     }

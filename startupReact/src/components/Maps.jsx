@@ -43,12 +43,12 @@ function Maps({user, setMap}) {
        setMapInfo(Info)
         const image = document.getElementById('mapImage').value;
        setMapImage(image)
+        console.log("in handleUpload");
         fetch('/api/maps/upload', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({mapName: name, mapInfo: Info,mapImage: image})
         }).then(res => console.log(res));
-      console.log(name);
 
     }
 
@@ -59,7 +59,6 @@ function Maps({user, setMap}) {
         </div>
         <div className="everything">
             <p/>
-            <form>
                 <table className = "Please">
 
                     <tbody>
@@ -79,12 +78,11 @@ function Maps({user, setMap}) {
                                 <td > <label> Map Name:</label> <input type={"text"} id={'mapName'}/></td>
                                 <td><label>Information: </label><input type={"text"} id={'mapInfo'}/></td>
                                 <td><label>Map Image:</label><input type={"file"} onChange={showDisplay} id={'mapImage'}/>{display && <img src={display} alt="Preview"/>}</td>
-                                <td><input type={"submit"} onSubmit={handleUpload}></input></td>
+                                <td><input type={"submit"} onClick={handleUpload}></input></td>
                             </tr>
                         </tbody>
 
                 </table>
-            </form>
 
 
 
