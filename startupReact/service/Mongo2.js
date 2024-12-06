@@ -8,14 +8,13 @@ function submitMapDB(code, userToken, mapInformation){
     const database = client.db('playerMaps');
     const mapCollection = database.collection('Maps');
 
-    if(mapInformation) {
         const mapScheme = {
             'mapOwner': userToken,
             'mapName': mapInformation.mapName,
             'mapInfo': mapInformation.mapInfo,
             'mapImage': mapInformation.mapImage,
         }
-    }
+
 
     //1: add a new map
     //2: update an existing map
