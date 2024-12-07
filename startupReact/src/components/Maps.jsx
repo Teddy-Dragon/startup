@@ -31,6 +31,9 @@ function Maps({user, setMap}) {
     }
 
     function showPlayerMaps(){
+        const callDB = fetch('/maps').then((res) => {res = res.json;
+        console.log(res);});
+
         return <>
         <h1 className='text-center'> Show maps that player has in database </h1>
         </>
@@ -49,6 +52,7 @@ function Maps({user, setMap}) {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({mapName: name, mapInfo: Info,mapImage: image})
         }).then(res => console.log(res));
+      console.log(name);
 
     }
 

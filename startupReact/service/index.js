@@ -9,7 +9,7 @@ const mapDatabase = require('./Mongo2');
 
 
 let users = {};
-let currentUser={}
+let currentUser= {}
 let sessions = {}
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -22,19 +22,17 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/newPlayer', async (req, res) => {
-    const user = users[req.body.username];
-    const currentUser = users[req.body.username];
-    if (user) {
+
+    if (localStorage.getItem('authState')) {
         console.log("You are already logged in");
         res.status(400).send({msg: "You are already logged in my friend"});
     }
     else {
         console.log(req.body);
-        const newUser = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4(), maps: {} };
-        users[newUser.username] = newUser;
+        const newUser = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4() };
+        currentUser = newUser;
         console.log(newUser.token);
         await database(2, newUser);
-        console.log("The await has been fulfilled");
         res.setHeader('Content-Type', 'application/json');
         res.send(newUser.token);
     }
@@ -46,6 +44,7 @@ apiRouter.post('/auth/returning', async (req, res) => {
     const person = {
         username: req.body.username,
         password: req.body.password,
+        token: null
     }
     database(1, person).then(result => {
         let newRes = null;
@@ -57,7 +56,8 @@ apiRouter.post('/auth/returning', async (req, res) => {
         }
         return newRes
     }).then(newRes => {
-        console.log(newRes);
+        person.token = newRes;
+        currentUser = person;
         res.status(201).json({"token": newRes});
     });
 
@@ -76,12 +76,13 @@ apiRouter.delete('/auth/signout', (req, res) => {
     }
 })
 apiRouter.get('/maps', (_req, res) => {
-    res.send(mapDatabase(4, currentUser.token, null));
+    const mapDBCall = mapDatabase(4, currentUser.token, null);
+    console.log(mapDBCall);
+    res.send(mapDBCall);
 
 })
 
 apiRouter.post('/maps/upload', (req, res) => {
-    console.log(req.body);
     if(submitMap(req.body.mapName, req.body.mapInfo, req.body.mapImage)){
         console.log("Upload Successful");
     }

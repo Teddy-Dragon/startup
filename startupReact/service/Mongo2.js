@@ -30,7 +30,7 @@ function submitMapDB(code, userToken, mapInformation){
         deleteMap(mapScheme);
     }
     if(code === 4){
-        getMaps(userToken);
+        return getMaps(userToken);
     }
 
 
@@ -39,9 +39,11 @@ function submitMapDB(code, userToken, mapInformation){
         return true;
     }
     function updateMap(mapScheme){
+        mapCollection.findOneAndUpdate(mapScheme);
         return false;
     }
     function deleteMap(mapScheme){
+        mapCollection.findOneAndDelete(mapScheme);
         return false;
     }
     function getMaps(userToken){
