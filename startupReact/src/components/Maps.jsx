@@ -75,7 +75,7 @@ function Maps({user, setMap}) {
 
                     </tr>
                     </tbody>
-                    {showPlayerMaps()}
+                    <button onClick={showPlayerMaps}>click</button>
 
                         <tbody>
                             <tr>

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "./LoginCSS.css"
 import App from "../App.jsx";
 import 'react-bootstrap'
+import {redirect} from "react-router-dom";
 
 
 
@@ -24,7 +25,7 @@ function Login({getStates}){
             if(res.token !== null){
                 localStorage.setItem('currentUser', user);
                 localStorage.setItem("authState", res.token);
-                console.log("In here");
+                window.location.reload();
             }
 
         });
@@ -42,7 +43,7 @@ function Login({getStates}){
                 method: 'POST',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({username: username, password: pass, email: email}),
-            }).then(res=> (localStorage.setItem('authState',res.body.token))).then(localStorage.setItem('currentUser', username));
+            }).then(res=> (localStorage.setItem('authState',res.body.token))).then(localStorage.setItem('currentUser', username)).then( window.location.reload());
         }
        else{
            console.log("Do your passwords match?")

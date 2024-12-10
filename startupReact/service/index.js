@@ -69,9 +69,9 @@ apiRouter.delete('/auth/signout', (req, res) => {
     if(user){
         delete user.token;
         currentUser = null;
+        res.status(204).end();
     }
     else{
-        console.log("Sign out Failed- Were you even logged in?");
         res.status(204).end();
     }
 })

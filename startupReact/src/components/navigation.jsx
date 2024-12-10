@@ -10,7 +10,6 @@ function navigation({user, setUser, authState, setState}) {
    function handleSignout(){
        localStorage.removeItem("currentUser");
        localStorage.removeItem("authState");
-       console.log("We hit this in signout");
 
        fetch("api/auth/signout", {
             method: "DELETE",

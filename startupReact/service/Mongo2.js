@@ -14,6 +14,7 @@ function submitMapDB(code, userToken, mapInformation){
             'mapInfo': mapInformation.mapInfo,
             'mapImage': mapInformation.mapImage,
         }
+        const owner = {'mapOwner': userToken};
 
 
     //1: add a new map
@@ -30,7 +31,7 @@ function submitMapDB(code, userToken, mapInformation){
         deleteMap(mapScheme);
     }
     if(code === 4){
-        return getMaps(userToken);
+        return getMaps();
     }
 
 
@@ -46,8 +47,9 @@ function submitMapDB(code, userToken, mapInformation){
         mapCollection.findOneAndDelete(mapScheme);
         return false;
     }
-    function getMaps(userToken){
-        return mapCollection.find(userToken);
+    function getMaps(){
+        console.log("This is in the mongo2 thing and its supposed to be what I'm getting back so help me "+ mapCollection.find(owner));
+        return mapCollection.find(owner);
 
     }
 
