@@ -4,10 +4,12 @@ const app = express();
 const {MongoClient} = require('mongodb');
 const config = require('./dbConfig.json');
 const database = require('./myMongo.js')
+const mapDatabase = require('./Mongo2');
+
 
 
 let users = {};
-let currentUser={}
+let currentUser= {}
 let sessions = {}
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -20,19 +22,17 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/newPlayer', async (req, res) => {
-    const user = users[req.body.username];
-    const currentUser = users[req.body.username];
-    if (user) {
+
+    if (localStorage.getItem('authState')) {
         console.log("You are already logged in");
         res.status(400).send({msg: "You are already logged in my friend"});
     }
     else {
         console.log(req.body);
-        const newUser = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4(), maps: {} };
-        users[newUser.username] = newUser;
+        const newUser = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4() };
+        currentUser = newUser;
         console.log(newUser.token);
         await database(2, newUser);
-        console.log("The await has been fulfilled");
         res.setHeader('Content-Type', 'application/json');
         res.send(newUser.token);
     }
@@ -44,6 +44,7 @@ apiRouter.post('/auth/returning', async (req, res) => {
     const person = {
         username: req.body.username,
         password: req.body.password,
+        token: null
     }
     database(1, person).then(result => {
         let newRes = null;
@@ -54,10 +55,11 @@ apiRouter.post('/auth/returning', async (req, res) => {
             console.log("Did not find a match");
         }
         return newRes
-        }).then(newRes => {
-            console.log(newRes);
-            res.status(201).json({"token": newRes});
-        });
+    }).then(newRes => {
+        person.token = newRes;
+        currentUser = person;
+        res.status(201).json({"token": newRes});
+    });
 
 
 })
@@ -67,21 +69,22 @@ apiRouter.delete('/auth/signout', (req, res) => {
     if(user){
         delete user.token;
         currentUser = null;
+        res.status(204).end();
     }
     else{
-        console.log("Sign out Failed- Were you even logged in?");
         res.status(204).end();
     }
 })
 apiRouter.get('/maps', (_req, res) => {
-    res.send(database.getmap(currentUser));
+    const mapDBCall = mapDatabase(4, currentUser.token, null);
+    console.log(mapDBCall);
+    res.send(mapDBCall);
 
 })
 
 apiRouter.post('/maps/upload', (req, res) => {
-    console.log(req.body);
     if(submitMap(req.body.mapName, req.body.mapInfo, req.body.mapImage)){
-     console.log("Upload Successful");
+        console.log("Upload Successful");
     }
     else {
         res.status(401).send({ msg: 'The upload failed' });
@@ -100,15 +103,14 @@ apiRouter.post('/game', (req, res) => {
 
 
 function submitMap(mapName, mapInfo, mapImage){
-    currentUser.maps[mapName] = {name: mapName, info: mapInfo, image: mapImage};
     const mapScheme =
         {
             mapName: mapName,
-        mapInfo: mapInfo,
-        mapImage: mapImage
+            mapInfo: mapInfo,
+            mapImage: mapImage
         };
-    if(currentUser.maps[mapName]){
-        database.submitmap(currentUser, mapScheme);
+    if(mapScheme.mapName !== null){
+        mapDatabase(1, currentUser.token, mapScheme);
         return true;
 
     }

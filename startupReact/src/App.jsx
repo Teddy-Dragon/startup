@@ -23,8 +23,8 @@ const router = createBrowserRouter([
 
 
 function App() {
-    const [currentUser, setCurrentUser] = useState(null);
-    const [authState, setAuthState] = useState(null);
+    const [currentUser, setCurrentUser] = useState(localStorage.getItem('currentUser'));
+    const [authState, setAuthState] = useState(localStorage.getItem("authState"));
     const [currentMap, setCurrentMap] = useState(null);
 
     function getStates(search){
@@ -35,20 +35,6 @@ function App() {
             return currentUser;
         }
     }
-    function setStates(type, information){
-        if(type === 'user'){
-            setCurrentUser(information);
-        }
-        if(type === 'auth'){
-            console.log(information);
-            setAuthState(information);
-            console.log(authState);
-        }
-        if(type === 'maps'){
-            setCurrentMap(information);
-        }
-    }
-
 
 
     return (
@@ -59,7 +45,7 @@ function App() {
                     <div className={'gap'}>
                         <Routes>
                             <Route path="/" element={<Home/>}/>,
-                            <Route path="/login" element={<Login getStates = {getStates} setStates = {setStates} />}/>,
+                            <Route path="/login" element={<Login getStates = {getStates}/>}/>,
                             <Route path='/maps' element={<Maps user = {currentUser} setMap={setCurrentMap} />}/>,
                             <Route path="/session" element={<Session user = {currentUser} map = {currentMap}/>}/>
                             <Route path="/join game" element={<Game/>}/>

@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import "./LoginCSS.css"
 import App from "../App.jsx";
 import 'react-bootstrap'
+import {redirect} from "react-router-dom";
 
 
 
-function Login({getStates, setStates}){
+function Login({getStates}){
 
   function handleReturn(){
         const user = document.getElementById('username').value;
@@ -21,13 +22,12 @@ function Login({getStates, setStates}){
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({username: user, password: pass}),
         }).then(res => res.json()).then(res => {
-            console.log(res.token);
-            setStates('auth',res.token);
-            console.log(getStates('auth'))
-            console.log(getStates('user'))
             if(res.token !== null){
-                setStates('user',user);
+                localStorage.setItem('currentUser', user);
+                localStorage.setItem("authState", res.token);
+                window.location.reload();
             }
+
         });
 
     }
@@ -43,8 +43,7 @@ function Login({getStates, setStates}){
                 method: 'POST',
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({username: username, password: pass, email: email}),
-            }).then(res=> (setStates('auth', res)));
-            setStates('user',username);
+            }).then(res=> (localStorage.setItem('authState',res.body.token))).then(localStorage.setItem('currentUser', username)).then( window.location.reload());
         }
        else{
            console.log("Do your passwords match?")

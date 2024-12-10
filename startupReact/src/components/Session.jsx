@@ -1,15 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SessionCSS.css'
 
 function Session({user, map}){
     const [sessionName, setSessionName] = React.useState('');
+    const [code, setCode] = React.useState(null);
 
 
     function saveName(){
         const name = document.getElementById('sessionname').value;
         setSessionName(name);
+        setCode(generateCode());
 
     }
+
+    function generateCode(){
+        const number = Math.floor(Math.random() * 999999).toString();
+        if(number < 100000){
+            return '0' + number.toString();
+        }
+        else{
+            return number.toString();
+        }
+
+
+    }
+
 
     function handleName() {
 
@@ -62,7 +77,8 @@ function Session({user, map}){
                     <li> Player 1</li>
                     <li> Player 2</li>
                     <h4> Session Code</h4>
-                    <p> 123456 </p>
+                    <p> {code}</p>
+                <h4>Chat</h4>
             </div>
         </div>
 </>
