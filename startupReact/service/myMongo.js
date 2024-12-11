@@ -16,7 +16,6 @@ function main(number, user) {
         password: user.password,
         email: user.email,
         token: user.token,
-        maps: user.maps
     }
 
     const url = `mongodb+srv://${config.userName}:${config.password}${config.hostName}`;
