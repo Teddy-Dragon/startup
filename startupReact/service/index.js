@@ -9,7 +9,11 @@ const mapDatabase = require('./Mongo2');
 
 
 let users = {};
-let currentUser= {}
+let currentUser= {
+    'username': null,
+    'password': null,
+    'email': null
+}
 let sessions = {}
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
@@ -23,18 +27,15 @@ app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/newPlayer', async (req, res) => {
 
-    if (localStorage.getItem('authState')) {
+    if (currentUser.username !== null) {
         console.log("You are already logged in");
         res.status(400).send({msg: "You are already logged in my friend"});
     }
     else {
-        console.log(req.body);
         const newUser = { username: req.body.username, email: req.body.email, password: req.body.password, token: uuid.v4() };
         currentUser = newUser;
-        console.log(newUser.token);
         await database(2, newUser);
-        res.setHeader('Content-Type', 'application/json');
-        res.send(newUser.token);
+        res.status(201).json({"token": newUser.token});
     }
 
 
@@ -68,7 +69,7 @@ apiRouter.delete('/auth/signout', (req, res) => {
     const user = Object.values(users).find((u) => u.token === req.body.token);
     if(user){
         delete user.token;
-        currentUser = null;
+        currentUser = {username: null, password: null, email: null};
         res.status(204).end();
     }
     else{

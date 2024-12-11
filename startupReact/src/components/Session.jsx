@@ -13,6 +13,11 @@ function Session({user, map}){
 
     }
 
+    function sendMessage(){
+
+
+    }
+
     function generateCode(){
         const number = Math.floor(Math.random() * 999999).toString();
         if(number < 100000){
@@ -78,10 +83,17 @@ function Session({user, map}){
                     <li> Player 2</li>
                     <h4> Session Code</h4>
                     <p> {code}</p>
-                <h4>Chat</h4>
+                <div className="name">
+                    <h3 className='text-center'> Chat</h3>
+                    <fieldset id="name-controls">
+                        <legend className='text-center'>Name</legend>
+                        <input id="my-name" type="text"/>
+                    </fieldset>
+                </div>
+
             </div>
         </div>
-</>
+    </>
 
 }
 
