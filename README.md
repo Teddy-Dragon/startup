@@ -56,12 +56,14 @@ For this deliverable I styled my website to match as closely as possible the fin
 - [x] Hooks are used throughout to find and set different variables and track user input and changes
 
 ## Service Deliveravble
+
 - [x] Created an HTTP service using Node.js and Express. There is a service directory and index.js file with appropriate backend calls
 - [x] Frontend served up using Express static middleware and makes calls to my service endpoints with login and signout and stores user tokens
 - [x] backend has end points for current functionality with login, signout, and create user.
 - [ ] Other endpoints are made although use is limited without a database. There are calls to upload a map and to search for active session, but these are not called in front end currently.
 
 ## Login Deliverable
+
 - [x] Players can signup and have their information stored in mongo
 - [x] Will not let players in who have not signed up
 - [x] Players can upload maps under their uuid for later functionality. If they are not logged in, maps cannot be submitted under their token and thus lost. Front end restricts access according to login
