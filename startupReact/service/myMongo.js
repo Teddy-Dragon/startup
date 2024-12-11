@@ -20,7 +20,7 @@ function main(number, user) {
 
     const url = `mongodb+srv://${config.userName}:${config.password}${config.hostName}`;
 
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, { tls: true, serverSelectionTimeoutMS: 3000, autoSelectFamily: false, });
     const database = client.db('User_Info');
     const playerCollection = database.collection('Players');
 
