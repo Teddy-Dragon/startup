@@ -66,10 +66,10 @@ apiRouter.post('/auth/returning', async (req, res) => {
 })
 
 apiRouter.delete('/auth/signout', (req, res) => {
-    const user = Object.values(users).find((u) => u.token === req.body.token);
-    if(user){
-        delete user.token;
-        currentUser = {username: null, password: null, email: null};
+    const nullPerson = {username: null, password: null, token: null, email: null};
+
+    if(currentUser.username !== null){
+        currentUser = nullPerson;
         res.status(204).end();
     }
     else{
