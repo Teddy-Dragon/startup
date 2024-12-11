@@ -4,7 +4,7 @@ const {response} = require("express");
 
 function submitMapDB(code, userToken, mapInformation){
     const url = `mongodb+srv://${config.userName}:${config.password}${config.hostName}`;
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, { tls: true, serverSelectionTimeoutMS: 3000, autoSelectFamily: false, });
     const database = client.db('playerMaps');
     const mapCollection = database.collection('Maps');
 
