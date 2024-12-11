@@ -67,11 +67,9 @@ apiRouter.post('/auth/returning', async (req, res) => {
 
 apiRouter.delete('/auth/signout', (req, res) => {
     const nullPerson = {username: null, password: null, token: null, email: null};
-    console.log("Im in here");
 
     if(currentUser.username !== null){
         currentUser = nullPerson;
-        console.log("this is the username -> " + currentUser.username);
         res.status(204).end();
     }
     else{
