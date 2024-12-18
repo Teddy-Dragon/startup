@@ -642,7 +642,8 @@ A build command that bundles your code with Rollup, pre-configured to output hig
 
 
 
-Kahoot Answers:
+
+ ## Kahoot Answers:
 
 
 Question: For the request GET /fav/george what is logged?
@@ -654,5 +655,21 @@ Question: Given the following code what will console.log print?
 ![kahoot2](https://images-cdn.kahoot.it/f696d33d-3ee4-4937-be45-50513792defc?auto=webp&dpr=1&quality=50)
 answer: "Client: Server: Hello"
 
+Question: What will component A display initially?
+![kahoot3](https://images-cdn.kahoot.it/eb05f83b-27b1-42ed-9c43-27e5705fe3fc?auto=webp&dpr=1&quality=50)
+answer: tacofish
 
+Question: What component will the URL /burger render?
+![kahoot4](https://images-cdn.kahoot.it/7e2b94e0-40d7-4a94-bc2b-d8bcdd40b6aa?auto=webp&dpr=1&quality=50)
+answer: B
+
+![kahoot5](https://github.com/Teddy-Dragon/Misc-Files/blob/main/Screenshot%202024-12-18%20124430.png?raw=true)
+
+![kahoot6](https://github.com/Teddy-Dragon/Misc-Files/blob/main/Screenshot%202024-12-18%20123806.png?raw=true)
+
+![kahoot7](https://github.com/Teddy-Dragon/Misc-Files/blob/main/Screenshot%202024-12-18%20123557.png?raw=true)
+
+![kahoot8](https://github.com/Teddy-Dragon/Misc-Files/blob/main/Screenshot%202024-12-18%20123255.png?raw=true)
+
+![kahoot9](https://github.com/Teddy-Dragon/Misc-Files/blob/main/Screenshot%202024-12-18%20123226.png?raw=true)
 
