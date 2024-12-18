@@ -557,9 +557,95 @@ classList: Adds, removes, or toggles classes on an element.
   - A record points to an ip address a cname can point to an A record
     
 - Port 443, 80, 22 is reserved for which protocol?
-  - Port 443: Https 80: HTTP 22: ssh 21: ftp
+  - Port 443: Https
+  -  80: HTTP
+  -   22: ssh
+  -   21: ftp
+
 
 
 
 MISC 
 What does the following code output using getElementByID and addEventListener?
+
+
+What does an HTTP status code in the range of 300/400/500 indicate?:
+
+http status code in the 300 means redirection, 400 means Client error, 500 means server error
+
+What does the HTTP header content-type allow you to do?:
+
+it details what kind of information is being sent to the server in the body
+
+What does a “Secure cookie”/”Http-only cookie”/”Same-site cookie” do? https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies:
+ - A cookie with the Secure attribute is only sent to the server with an encrypted request over the HTTPS protocol. It's never sent with unsecured HTTP (except on localhost), which means man-in-the-middle attackers can't access it easily
+ - A cookie with the HttpOnly attribute can't be accessed by JavaScript, for example using Document.cookie; it can only be accessed when it reaches the server.
+ - The SameSite attribute lets servers specify whether/when cookies are sent with cross-site requests — i.e. third-party cookies. Cross-site requests are requests where the site (the registrable domain) and/or the scheme (http or https) do not match the site the user is currently visiting. This includes requests sent when links are clicked on other sites to navigate to your site, and any request sent by embedded third-party content.
+
+Assuming the following Express middleware, what would be the console.log output for an HTTP GET request with a URL path of /api/document?
+
+Given the following Express service code: What does the following front end JavaScript that performs a fetch return?
+
+
+Given the following MongoDB query, select all of the matching documents {name:Mark}
+
+
+
+
+How should user passwords be stored?:
+Hashed
+
+
+Assuming the following node.js websocket code in the back end, and the following front end websocket code, what will the front end log to the console?
+What is the websocket protocol intended to provide?
+What do the following acronyms stand for? JSX, JS, AWS, NPM, NVM
+Assuming an HTML document with a body element. What text content will the following React component generate?  The react component will use parameters.
+Given a set of React components that include each other, what will be generated
+
+
+What does a React component with React.useState do:
+ - Manage Internal Data: It allows the component to hold and update its own internal data. This data can be anything: numbers, strings, arrays, objects, etc.
+ - Trigger Re-renders: Whenever the internal data (the "state") is updated using the function returned by useState, React efficiently re-renders only the necessary parts of the component and its children. This ensures the user interface (UI) reflects the latest data changes.   
+
+
+What are React Hooks used for?
+
+What does the State Hook/Context Hook/Ref Hook/Effect Hook/Performance Hook do? https://react.dev/reference/react/hooks:
+ - State lets a component “remember” information like user input.
+ - Context lets a component receive information from distant parents without passing it as props. For example, your app’s top-level component can pass the current UI theme to all components below, no matter how deep.
+ - Refs let a component hold some information that isn’t used for rendering, like a DOM node or a timeout ID. Unlike with state, updating a ref does not re-render your component. Refs are an “escape hatch” from the React paradigm. They are useful when you need to work with non-React systems, such as the built-in browser APIs
+ - Effects let a component connect to and synchronize with external systems. This includes dealing with network, browser DOM, animations, widgets written using a different UI library, and other non-React code.
+ - A common way to optimize re-rendering performance is to skip unnecessary work. For example, you can tell React to reuse a cached calculation or to skip a re-render if the data has not changed since the previous render.
+
+
+Given React Router code, select statements that are true.
+What does the package.json file do?
+ -  It's a JSON file that acts as a manifest for your project, containing metadata and configuration information.
+ -  
+What does the fetch function do?
+ - fetches a resource from the network or api
+
+What does node.js do?
+
+ - Node. js is not a programming language; it is a runtime environment allowing you to execute JavaScript code on the server side, outside a web browser.
+What does pm2 do?
+
+- PM2 allows you to quickly start, stop, or control your Node processes. 
+
+What does Vite do?
+
+- Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects. It consists of two major parts:
+
+A dev server that provides rich feature enhancements over native ES modules, for example extremely fast Hot Module Replacement (HMR).
+
+A build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for production.
+
+
+
+Kahoot Answers:
+
+![kahoot](https://images-cdn.kahoot.it/907074b0-266a-4d57-82c3-9dcf71190893?auto=webp&dpr=1&quality=50)
+
+
+
+
