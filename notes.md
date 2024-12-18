@@ -644,8 +644,15 @@ A build command that bundles your code with Rollup, pre-configured to output hig
 
 Kahoot Answers:
 
-![kahoot](https://images-cdn.kahoot.it/907074b0-266a-4d57-82c3-9dcf71190893?auto=webp&dpr=1&quality=50)
 
+Question: For the request GET /fav/george what is logged?
+![kahoot](https://images-cdn.kahoot.it/907074b0-266a-4d57-82c3-9dcf71190893?auto=webp&dpr=1&quality=50)
+Answer: Paul George John
+
+
+Question: Given the following code what will console.log print?
+![kahoot2](https://images-cdn.kahoot.it/f696d33d-3ee4-4937-be45-50513792defc?auto=webp&dpr=1&quality=50)
+answer: "Client: Server: Hello"
 
 
 
